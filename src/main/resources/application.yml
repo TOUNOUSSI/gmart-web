@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: gmart-web
+  resources:
+        static-locations: classpath:/static/,file:///C:/static/
+server:
+    port: 8787
+    servlet:
+        session:
+            ######################## Cookie configuration ##########################
+            cookie:
+                http-only: true
+                secure: true

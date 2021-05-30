@@ -1,0 +1,24 @@
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Type de post</mat-label>
+    <mat-select [(value)]="post.type">
+      <mat-option *ngFor="let postType of postTypes" [value]="postType.value">
+        {{ postType.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Post"
+      formControlName="description"
+      [(ngModel)]="post.description"
+    />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>

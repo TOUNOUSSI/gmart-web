@@ -1,0 +1,61 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="mat-card">
+    <mat-card-header>
+      <mat-card-title>DATA MART</mat-card-title>
+    </mat-card-header>
+
+    <form
+      class="login-form"
+      (ngSubmit)="f.form.valid && login()"
+      #f="ngForm"
+      novalidate
+    >
+      <mat-card-content>
+        <mat-form-field class="login-full-width">
+          <input
+            name="username"
+            matInput
+            placeholder="Username or email"
+            [(ngModel)]="user.username"
+            #username="ngModel"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field class="login-full-width">
+          <input
+            name="password"
+            matInput
+            type="password"
+            placeholder="Password"
+            [(ngModel)]="user.password"
+            #password="ngModel"
+            required
+          />
+        </mat-form-field>
+      </mat-card-content>
+      <button type="submit" mat-stroked-button color="accent" class="btn-block">
+        Log In
+      </button>
+      <a routerLink="/signup">New to us? Sign Up.</a>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <input
+              type="hidden"
+              th:name="${_csrf.parameterName}"
+              th:value="${_csrf.token}"
+            />
+            <input
+              type="submit"
+              name="login-submit"
+              id="login-submit"
+              class="form-control btn btn-info"
+              value="Log In"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

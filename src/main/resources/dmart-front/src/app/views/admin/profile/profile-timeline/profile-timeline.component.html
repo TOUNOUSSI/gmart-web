@@ -1,0 +1,134 @@
+<div id="timeline-container" class="timeline-container">
+  <div class="profile-timeline">
+    <div class="row">
+      <div class="profile-timeline-col-left">
+        <div class="box image">
+          <div class="box-header">
+            <h3 style="color: seashell; margin-bottom: -27px">Intro</h3>
+            <div>
+              <div class="profile-intro-simple-line-row">
+                <i class="fa fa-graduation-cap profile-intro-fontawsome"></i>
+                <span class="profile-intro-span" dir="auto"> Studied at </span>
+                <a class="profile-intro-a" href="" role="link" tabindex="0">
+                  <span class="profile-intro-single-row-span">
+                    Ecole supérieure de technologie d'Essaouira
+                  </span>
+                </a>
+              </div>
+
+              <div class="profile-intro-multiple-line-row">
+                <i class="fa fa-graduation-cap profile-intro-fontawsome"></i>
+                <span class="profile-intro-span" dir="auto"> Goes to </span>
+                <a class="profile-intro-a" href="" role="link" tabindex="0">
+                  <span class="profile-intro-multiple-row-span">
+                    Ecole Marocaine de Sciences de l'Igénieur(Page Officielle)
+                  </span>
+                </a>
+              </div>
+
+              <div class="profile-intro-simple-line-row">
+                <i class="fa fa-home profile-intro-fontawsome"></i>
+                <span class="profile-intro-span" dir="auto"> Studied at </span>
+                <a class="profile-intro-a" href="" role="link" tabindex="0">
+                  <span class="profile-intro-single-row-span">
+                    Ecole supérieure de technologie d'Essaouira
+                  </span>
+                </a>
+              </div>
+
+              <div class="profile-intro-simple-line-row">
+                <i class="fa fa-map-marker profile-intro-fontawsome"></i>
+                <span class="profile-intro-span" dir="auto"> Studied at </span>
+
+                <a class="profile-intro-a" href="" role="link" tabindex="0">
+                  <span class="profile-intro-single-row-span">
+                    Ecole supérieure de technologie d'Essaouira
+                  </span>
+                </a>
+              </div>
+              <div class="profile-intro-simple-line-row">
+                <i class="fa fa-heart profile-intro-fontawsome"></i>
+                <span class="profile-intro-span" dir="auto"> Studied at </span>
+
+                <a class="profile-intro-a" href="" role="link" tabindex="0">
+                  <span class="profile-intro-single-row-span">
+                    Ecole supérieure de technologie d'Essaouira
+                  </span>
+                </a>
+              </div>
+              <div class="profile-intro-simple-line-row">
+                <i class="fa fa-rss profile-intro-fontawsome"></i>
+                <span class="profile-intro-span" dir="auto"> Studied at </span>
+                <a class="profile-intro-a" href="" role="link" tabindex="0">
+                  <span class="profile-intro-single-row-span">
+                    Ecole supérieure de technologie d'Essaouira
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-timeline-col-right">
+        <div class="box image" *ngIf="isMyProfile">
+          <div class="box-header">
+            <div class="box-avatar">
+              <img
+                [src]="profileImageAvatar"
+                alt="{{ loadedProfile.firstname }} {{ loadedProfile.lastname }}"
+              />
+            </div>
+          </div>
+
+          <div class="box-new-post">
+            <div class="content">
+              <div class="content-row">
+                <button
+                  class="btn-new-post-open-modal"
+                  data-target="#details"
+                  data-toggle="modal"
+                  (click)="openDialog()"
+                >
+                  <textarea
+                    placeholder="What's in your head ?"
+                    [(ngModel)]="textPost.description"
+                    (keydown.enter)="submitTextPostKeyUpEvent()"
+                  ></textarea>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="box-buttons">
+            <div class="row">
+              <button>
+                <i class="fa fa-video-camera"></i>
+                <span class="box-buttons-font"> Live</span>
+              </button>
+              <button>
+                <i class="fa fa-picture-o"></i
+                ><span class="box-buttons-font"> Photo/Video</span>
+              </button>
+              <button>
+                <i class="fa fa-flag"></i
+                ><span class="box-buttons-font"> Life Event</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <span id="trigger-changes-id"></span>
+
+        <aside class="ml4 post-widget-ul" id="listOfPostWidgets">
+          <dmart-post-widget
+            *ngFor="let post of posts | slice: 0:5; let i = index"
+            [attr.data-index]="i"
+            [id]="post.id"
+            [post]="post"
+            [comments]="post.comments"
+            [loadedProfile]="loadedProfile"
+            [profileImageAvatar]="profileImageAvatar"
+          ></dmart-post-widget>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>

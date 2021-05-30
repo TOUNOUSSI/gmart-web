@@ -1,0 +1,6 @@
+[
+	{
+		"name": "gmart-core",
+		"description": "Feign client to core service"
+	}
+]
