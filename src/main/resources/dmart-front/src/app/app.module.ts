@@ -38,6 +38,8 @@ import { LoginComponent } from "./views/login/login.component";
 import { SearchModule } from "./views/core/search";
 import { CookieService } from "ngx-cookie-service";
 import { DmartCryptoService } from "./services/dmart-cryptography/dmart-crypto.service";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { DmartCryptoService } from "./services/dmart-cryptography/dmart-crypto.s
     AppSidebarModule,
     FriendsModule,
     SearchModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   entryComponents: [],
 
