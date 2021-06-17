@@ -119,7 +119,7 @@
 
         <aside class="ml4 post-widget-ul" id="listOfPostWidgets">
           <dmart-post-widget
-            *ngFor="let post of posts | slice: 0:5; let i = index"
+            *ngFor="let post of posts | slice: 0:counter; let i = index"
             [attr.data-index]="i"
             [id]="post.id"
             [post]="post"

@@ -25,6 +25,10 @@ import { BsModalService } from "ngx-bootstrap/modal";
 import { PostModule } from "../post/post.module";
 import { PostWidgetComponent } from "../post/post-widget/post-widget.component";
 import { NewPostModalComponent } from "../post/new-post-modal/new-post-modal.component";
+import {
+  PushNotificationComponent,
+  PushNotificationModule,
+} from "../core/push-notification";
 @NgModule({
   imports: [
     CommonModule,
@@ -38,6 +42,7 @@ import { NewPostModalComponent } from "../post/new-post-modal/new-post-modal.com
     MatCardModule,
     AngularMaterialModule,
     PostModule,
+    PushNotificationModule,
   ],
 
   declarations: [
@@ -48,7 +53,7 @@ import { NewPostModalComponent } from "../post/new-post-modal/new-post-modal.com
     ProfileBodyComponent,
     ProfileTimelineComponent,
   ],
-  entryComponents: [NewPostModalComponent],
+  entryComponents: [NewPostModalComponent, PushNotificationComponent],
   providers: [BsModalService, CookieService],
 })
 export class AdminModule {}

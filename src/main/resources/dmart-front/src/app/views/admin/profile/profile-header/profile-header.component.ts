@@ -6,12 +6,13 @@ import {
   Output,
   EventEmitter,
 } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { ProfileService } from "src/app/services/profile/profile.service";
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 import { MessengerService } from "src/app/services/messenger/messenger.service";
-import { Profile } from "src/app/models/profile.model";
 import { CookieService } from "ngx-cookie-service";
+import { PushNotificationService } from "src/app/services/push-notification/push-notification.service";
+import { NotificationDTO } from "src/app/models/notification.model";
+import { UserProfile } from "src/app/models/notification-profile.model";
 
 const rand = (max) => Math.floor(Math.random() * max);
 
@@ -28,10 +29,13 @@ export class ProfileHeaderComponent implements OnInit {
   public loadedProfile: any;
 
   public profilePropertyToChange: string;
+
+  public newFriendRequestNotification: NotificationDTO;
+
   constructor(
     private cookieService: CookieService,
     private messengerService: MessengerService,
-    private route: ActivatedRoute,
+    private pushNotificationService: PushNotificationService,
     private profileService: ProfileService,
     private _sanitizer: DomSanitizer
   ) {}
@@ -47,6 +51,14 @@ export class ProfileHeaderComponent implements OnInit {
   areWeAlreadyFriend: boolean = true;
   isProfilePicture: boolean = false;
   ngOnInit() {
+    // In case there's no cover and no profile load the default GMART cover and default profile picture
+    this.profileCoverImage = this._sanitizer.bypassSecurityTrustResourceUrl(
+      "../../../../assets/img/profile/cover/default-cover.jpg"
+    );
+
+    this.profileImageAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
+      "../../../../assets/img/avatars/avatar-default.png"
+    );
     if (this.pseudoname !== this.cookieService.get("__psdnm_")) {
       this.isMyProfile = false;
     }
@@ -72,15 +84,6 @@ export class ProfileHeaderComponent implements OnInit {
             );
         }
       });
-    } else {
-      // In case there's no cover and no profile load the default GMART cover and default profile picture
-      this.profileCoverImage = this._sanitizer.bypassSecurityTrustResourceUrl(
-        "../../../../assets/img/profile/cover/default-cover.jpg"
-      );
-
-      this.profileImageAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
-        "../../../../assets/img/avatars/avatar-default.png"
-      );
     }
     //Backing up the profile cover
     this.imagePathBackup = this.profileCoverImage;
@@ -102,7 +105,7 @@ export class ProfileHeaderComponent implements OnInit {
       "timeline-container"
     ) as HTMLDivElement;
     if (profile !== undefined) {
-      console.log("applieeeeeeeeeeeeeeeeeeeeeeeeeeed = " + window.innerWidth);
+      //console.log(window.innerWidth);
 
       //if( window.pageYOffset>= 526.4000244140625){
       if (window.pageYOffset >= 526.4000244140625 && window.innerWidth > 414) {
@@ -202,6 +205,8 @@ export class ProfileHeaderComponent implements OnInit {
           },
           (err) => {}
         );
+        window.location.reload();
+
         break;
       }
 
@@ -230,9 +235,35 @@ export class ProfileHeaderComponent implements OnInit {
    *
    */
   onAddNewFriendToFriendList() {
-    console.log("adding '" + this.pseudoname + "' to friend list");
-    this.areWeAlreadyFriend = true;
-    this.messengerService.addFriend(this.pseudoname);
+    //Get friend username to be send
+    console.log("Sending a friend request to '" + this.pseudoname);
+
+    this.messengerService
+      .addFriendRequest(this.pseudoname)
+      .then((userProfile: any) => {
+        console.log("Send friend request to : " + JSON.stringify(userProfile));
+
+        this.profileService
+          .getCustomProfileByUsername(userProfile.username)
+          .subscribe((receiver: UserProfile) => {
+            console.log("Receiver : " + JSON.stringify(receiver));
+
+            this.profileService
+              .getCustomProfileByUsername(this.cookieService.get("__usrnm_"))
+              .subscribe((sender: UserProfile) => {
+                console.log("Sender: " + JSON.stringify(sender));
+                this.newFriendRequestNotification = new NotificationDTO(
+                  sender,
+                  receiver,
+                  "FRIEND_REQUEST"
+                );
+                console.log(JSON.stringify(this.newFriendRequestNotification));
+                this.pushNotificationService.sendFriendRequestNotification(
+                  this.newFriendRequestNotification
+                );
+              });
+          });
+      });
   }
 
   public switchSaveSideBarShown() {
