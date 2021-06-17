@@ -20,8 +20,17 @@ export class CommentBoxComponent implements OnInit {
   constructor(private _sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    this.profileImageAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
-      "data:image/jpg;base64," + this.comment.commenterProfile.avatarPayload
-    );
+    if (
+      this.comment.commenterProfile.avatarPayload !== undefined &&
+      this.comment.commenterProfile.avatarPayload !== null
+    ) {
+      this.profileImageAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
+        "data:image/jpg;base64," + this.comment.commenterProfile.avatarPayload
+      );
+    } else {
+      this.profileImageAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
+        "../../../../assets/img/avatars/avatar-default.png"
+      );
+    }
   }
 }

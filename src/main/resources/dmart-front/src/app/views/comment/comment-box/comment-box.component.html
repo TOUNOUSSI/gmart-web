@@ -5,21 +5,20 @@
       comment.commenterProfile.lastname
     }}"
   />
-  <div class="content">
-    <h3>
-      <a href=""
-        >{{ comment.commenterProfile.firstname }}
-        {{ comment.commenterProfile.lastname }}</a
-      >
-    </h3>
-    <div class="bottom">
-      <p>
-        {{ comment.value }}
-      </p>
-    </div>
-    <span
-      ><time> {{ comment.commentDate | date: "MMM d, y, h:mm:ss a" }} - </time
-      ><a href="#">Like</a></span
+  <h3>
+    <a href=""
+      >{{ comment.commenterProfile.firstname }}
+      {{ comment.commenterProfile.lastname }}</a
     >
+  </h3>
+  <br />
+  <div class="content">
+    <p>
+      {{ comment.value }}
+    </p>
+    <span
+      ><a href="#">Like</a> · <a href="#">Reply</a>
+      <time> · {{ comment.commentDate | date: "MMM d, y, h:mm:ss a" }}</time>
+    </span>
   </div>
 </div>

@@ -817,10 +817,10 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     border-top: 1px solid rgba(163, 162, 162, 0.575);
     /* margin: 0; */
     overflow: hidden;
-    /* padding: 0px 0px 0px 0px; */
     position: relative;
-    float: left;
     margin-left: -13px;
+    display: inline-block;
+    width: 100%;
   }
 
   .comment>img {
@@ -836,7 +836,6 @@ $comment-bg-color: rgb(103 102 102 / 12%);
   .comment>.content {
     height: auto;
     line-height: 20px;
-    margin: 0 0 0 7px;
     overflow: hidden;
     padding: 0;
     position: relative;
@@ -848,7 +847,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     margin: 3px 0px 3px 0px;
   }
 
-  .comment>.content>h3 {
+  .comment>h3 {
     float: left;
     font-size: 14px;
     font-weight: 600;
@@ -865,19 +864,11 @@ $comment-bg-color: rgb(103 102 102 / 12%);
   }
 
   .comment>.content>p {
-    color: #4B4D53;
+    color: whitesmoke;
     font-size: 13px;
     margin: 0;
     padding: 0;
   }
-
-  .comment>.content>.bottom>p {
-    color: whitesmoke;
-    position: relative;
-    float: left;
-    margin-bottom: 0px;
-  }
-
 
   .box>.box-new-comment {
     overflow: hidden;
