@@ -3,6 +3,7 @@ import {
   Component,
   EventEmitter,
   HostListener,
+  Input,
   OnInit,
   Output,
   ViewChild,
@@ -20,6 +21,12 @@ import { map, startWith } from "rxjs/operators";
 import { FormControl, FormGroup } from "@angular/forms";
 import { CookieService } from "ngx-cookie-service";
 import { ClassToggler } from "../../core/shared/toggle-classes";
+import { HttpEvent } from "@angular/common/http";
+import { PushNotificationService } from "src/app/services/push-notification/push-notification.service";
+import { NotificationDTO } from "src/app/models/notification.model";
+import { cpuUsage } from "process";
+import { UserProfile } from "src/app/models/notification-profile.model";
+import { DmartUtilsService } from "src/app/services/dmart-utils/dmart-utils.service";
 
 @Component({
   selector: "app-dashboard",
@@ -28,7 +35,12 @@ import { ClassToggler } from "../../core/shared/toggle-classes";
   providers: [ClassToggler],
 })
 export class DefaultLayoutComponent implements OnInit, AfterViewInit {
+  //total notifications
+  @Input()
+  public notificationCounter = 0;
+
   @Output() public idEmitter: EventEmitter<any> = new EventEmitter();
+
   theme: "red";
   name: string;
   public sidebarMinimized = true;
@@ -50,6 +62,11 @@ export class DefaultLayoutComponent implements OnInit, AfterViewInit {
 
   public profileAvatar: SafeResourceUrl;
 
+  //This is used for listing all notifications
+  public notifications = [];
+  public newNotifications = [];
+  public oldNotifications = [];
+  public avatarPayload: string = "";
   constructor(
     private accountservice: AccountService,
     private authenticationService: AuthService,
@@ -58,16 +75,89 @@ export class DefaultLayoutComponent implements OnInit, AfterViewInit {
     private router: Router,
     private profileService: ProfileService,
     private _sanitizer: DomSanitizer,
-    private classToggler: ClassToggler
+    private classToggler: ClassToggler,
+    private pushNotificationService: PushNotificationService,
+    private dmartUtils: DmartUtilsService
   ) {
     this.changes = new MutationObserver((mutations) => {
-      this.sidebarMinimized = document.body.classList.contains(
-        "sidebar-minimized"
-      );
+      this.sidebarMinimized =
+        document.body.classList.contains("sidebar-minimized");
     });
     this.changes.observe(<Element>this.element, {
       attributes: true,
     });
+  }
+
+  async ngOnInit() {
+    this.myFormGroup = new FormGroup({
+      search: new FormControl(),
+    });
+    this.filteredOptions = this.myFormGroup.get("search").valueChanges.pipe(
+      startWith(""),
+      map((value) => this._filter(value))
+    );
+    await this.profileService.getMyProfile().subscribe((profile) => {
+      this.myProfile = profile;
+      this.pseudoname = profile.pseudoname;
+      console.log("Inside Default layout profile loading ... ");
+
+      this.pushNotificationService
+        .getAllNotifications(this.cookieService.get("__usrnm_"))
+        .subscribe((notifications) => {
+          console.log("Getting list of notification");
+          this.notifications = notifications;
+          console.log(this.notifications);
+          this.oldNotifications = this.notifications.filter(
+            (notif: NotificationDTO) => {
+              return notif.checked === true;
+            }
+          );
+          this.newNotifications = this.notifications.filter(
+            (notif: NotificationDTO) => {
+              return notif.checked === false;
+            }
+          );
+          this.notificationCounter = this.newNotifications.length;
+        });
+
+      if (profile.pictures !== undefined && profile.pictures.length > 0) {
+        profile.pictures.forEach((picture) => {
+          if (picture.pictureType === "PROFILE_PICTURE") {
+            this.profileAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
+              "data:image/jpg;base64," + picture.data
+            );
+            this.avatarPayload = picture.data;
+          }
+        });
+      } else {
+        // In case there's no cover load the default GMART cover
+        this.profileAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
+          "../../../../assets/img/avatars/avatar-default.png"
+        );
+      }
+    });
+
+    //push notification
+    this.pushNotificationService.initializeWebSocketConnection(
+      this.cookieService.get("__usrnm_")
+    );
+
+    this.pushNotificationService.messageSource.subscribe((counter) => {
+      console.log("Message: ", counter); //
+      this.notificationCounter += counter;
+    });
+
+    this.pushNotificationService.notificationsBehaviorSubject.subscribe(
+      (notification: NotificationDTO) => {
+        this.profileService
+          .getCustomProfileByUsername(notification.sender.username)
+          .subscribe((sender: UserProfile) => {
+            notification.sender = sender;
+            this.notifications.unshift(notification);
+            this.newNotifications.unshift(notification);
+          });
+      }
+    );
   }
 
   ngAfterViewInit(): void {
@@ -126,35 +216,6 @@ export class DefaultLayoutComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngOnInit() {
-    this.myFormGroup = new FormGroup({
-      search: new FormControl(),
-    });
-    this.filteredOptions = this.myFormGroup.get("search").valueChanges.pipe(
-      startWith(""),
-      map((value) => this._filter(value))
-    );
-    this.profileService.getMyProfile().subscribe((profile) => {
-      this.myProfile = profile;
-      console.log("Inside Default layout profile loading ... ");
-      this.pseudoname = profile.pseudoname;
-      if (profile.pictures !== undefined && profile.pictures.length > 0) {
-        profile.pictures.forEach((picture) => {
-          if (picture.pictureType === "PROFILE_PICTURE") {
-            this.profileAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
-              "data:image/jpg;base64," + picture.data
-            );
-          }
-        });
-      } else {
-        // In case there's no cover load the default GMART cover
-        this.profileAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
-          "../../../../assets/img/avatars/avatar-default.png"
-        );
-      }
-    });
-  }
-
   onOpenMyProfile(pseudoname) {
     this.router.navigateByUrl("/admin/profile/" + pseudoname);
   }
@@ -191,5 +252,15 @@ export class DefaultLayoutComponent implements OnInit, AfterViewInit {
     console.log("event " + event.type + " listener");
     document.querySelector("body").classList.add("aside-menu-show");
     document.querySelector("body").classList.remove("sidebar-show");
+  }
+
+  readNotification(event: HttpEvent<any>) {
+    console.log("Event received");
+  }
+
+  public navigateToUrlWithRefreshParams() {
+    this.dmartUtils.loadProfileWithRefreshParams(
+      "/admin/profile/" + this.pseudoname
+    );
   }
 }
