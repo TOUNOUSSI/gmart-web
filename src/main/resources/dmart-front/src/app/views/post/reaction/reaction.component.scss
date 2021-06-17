@@ -1,0 +1,127 @@
+@media only screen and(min-width: 415px) {
+  .box-likes {
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 30px;
+    position: relative;
+  }
+
+  .box-likes>.row {
+    border-top: 1px solid rgba(221, 221, 221, 0.404);
+    padding: 3px 0;
+  }
+
+  .box-likes>.row>span {
+    display: inline-block;
+    font-size: 13px;
+    margin: 0 2px 0 0;
+    position: relative;
+    vertical-align: middle;
+  }
+
+  .box-likes>.row:first-child {
+    float: left;
+    width: 60%;
+  }
+
+  .box-likes>.row:last-child {
+    float: right;
+    text-align: end;
+    width: 43%;
+    margin-right: 2px;
+    padding-left: 80px;
+  }
+
+  .box-likes>.row:first-child>span:nth-child(4) {
+    background: #4D679F;
+    border-radius: 50px;
+    font-weight: bold;
+    padding: 0 8px 0 6px;
+  }
+
+  .box-likes>.row:first-child>span:nth-child(4)>a {
+    color: #FFF;
+  }
+
+  .box-likes>.row:first-child>span,
+  .box-likes>.row:last-child>span {
+    color: #9197A3;
+  }
+
+  .box-likes>.row:last-child>span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .box-likes>.row img {
+    border-radius: 100px;
+    height: 28px;
+    object-fit: cover;
+    width: 28px;
+  }
+}
+
+
+@media only screen and (max-width:414px) {
+
+  .box-likes {
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 30px;
+    position: relative;
+  }
+
+  .box-likes>.row {
+    border-top: 1px solid rgba(221, 221, 221, 0.404);
+    padding: 3px 0;
+  }
+
+  .box-likes>.row>span {
+    display: inline-block;
+    font-size: 13px;
+    margin: 0 2px 0 0;
+    position: relative;
+    vertical-align: middle;
+  }
+
+  .box-likes>.row:first-child {
+    float: left;
+    width: 60%;
+  }
+
+  .box-likes>.row:last-child {
+    float: right;
+    text-align: end;
+    width: 43%;
+    margin-right: 2px;
+    padding-left: 80px;
+  }
+
+  .box-likes>.row:first-child>span:nth-child(4) {
+    background: #4D679F;
+    border-radius: 50px;
+    font-weight: bold;
+    padding: 0 8px 0 6px;
+  }
+
+  .box-likes>.row:first-child>span:nth-child(4)>a {
+    color: #FFF;
+  }
+
+  .box-likes>.row:first-child>span,
+  .box-likes>.row:last-child>span {
+    color: #9197A3;
+  }
+
+  .box-likes>.row:last-child>span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .box-likes>.row img {
+    border-radius: 100px;
+    height: 28px;
+    object-fit: cover;
+    width: 28px;
+  }
+}
