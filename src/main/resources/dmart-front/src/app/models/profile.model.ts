@@ -2,6 +2,7 @@ import { Picture } from "./picture.model";
 import { Post } from "./post.model";
 export class Profile {
   pseudoname: string;
+  username: string;
   firstname: string;
   lastname: string;
   nickname: string;

@@ -1,4 +1,5 @@
 import { Comment } from "./comment.model";
+import { Reaction } from "./reaction.model";
 
 export class Post {
   id: string;
@@ -6,4 +7,5 @@ export class Post {
   postDate: Date;
   description: string;
   comments: Array<Comment>;
+  reactions: Array<Reaction>;
 }
