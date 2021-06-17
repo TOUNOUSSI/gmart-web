@@ -14,6 +14,8 @@ import {
   MatSelectModule,
 } from "@angular/material";
 import { CommentBoxComponent, CommentModule } from "../comment";
+import { ReactionComponent } from "./reaction/reaction.component";
+import { OrderModule, OrderPipe } from "ngx-order-pipe";
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { CommentBoxComponent, CommentModule } from "../comment";
     PostFooterComponent,
     PostWidgetComponent,
     NewPostModalComponent,
+    ReactionComponent,
   ],
   imports: [
     CommonModule,
@@ -33,8 +36,10 @@ import { CommentBoxComponent, CommentModule } from "../comment";
     MatCardModule,
     AngularMaterialModule,
     CommentModule,
+    OrderModule,
   ],
   exports: [PostWidgetComponent, NewPostModalComponent],
+  providers: [OrderPipe],
   entryComponents: [
     PostWidgetComponent,
     NewPostModalComponent,
