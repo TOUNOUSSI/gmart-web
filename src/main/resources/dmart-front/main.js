@@ -5,7 +5,7 @@ const { app, BrowserWindow } = require('electron')
 
 // Gardez une reference globale de l'objet window, si vous ne le faites pas, la fenetre sera
 // fermee automatiquement quand l'objet JavaScript sera garbage collected.
-let win
+let win;
 
 function createWindow () {
   // Créer le browser window.
