@@ -10,9 +10,6 @@ import {
   EventEmitter,
 } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
-import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
-import { ProfileService } from "src/app/services/profile/profile.service";
-
 @Component({
   selector: "app-header, cui-header",
   templateUrl: "./app-header.component.html",
@@ -31,8 +28,6 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
 
   @Input() asideMenuToggler: string | boolean;
   @Input() mobileAsideMenuToggler: boolean;
-
-  pseudoname: string;
 
   @Output()
   public toggleSideBarMinimizer: EventEmitter<any> = new EventEmitter();
