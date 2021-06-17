@@ -28,24 +28,9 @@
       <span><span class="fa fa-search-plus"></span></span>
     </div>
   </div>
-  <div class="box-likes">
-    <div class="row">
-      <span
-        ><a href="#"><img src="https://goo.gl/oM0Y8G" alt="" /></a
-      ></span>
-      <span
-        ><a href="#"><img src="https://goo.gl/vswgSn" alt="" /></a
-      ></span>
-      <span
-        ><a href="#"><img src="https://goo.gl/4W27eB" alt="" /></a
-      ></span>
-      <span><a href="#">+99</a></span>
-      <span>Like this</span>
-    </div>
-    <div class="row">
-      <span>{{ post.comments?.length }} comments</span>
-    </div>
-  </div>
+
+  <dmart-reaction [totalComments]="post.comments?.length"></dmart-reaction>
+
   <div class="box-buttons">
     <div class="row">
       <button><span class="fa fa-thumbs-up"></span></button>
@@ -55,10 +40,20 @@
   </div>
 
   <div class="box-comments">
-    <ng-template #commentBoxViewTemplate></ng-template>
-
+    <span
+      class="show-more"
+      (click)="getMoreComments()"
+      *ngIf="counter < comments?.length"
+    >
+      View {{ this.comments.length - this.counter }} more comments
+    </span>
     <dmart-comment-box
-      *ngFor="let comment of comments | slice: 0:3; let i = index"
+      *ngFor="
+        let comment of comments
+          | orderBy: 'order':true
+          | slice: comments?.length - counter:comments?.length;
+        let i = index
+      "
       [attr.data-index]="i"
       [id]="comment.id"
       [comment]="comment"

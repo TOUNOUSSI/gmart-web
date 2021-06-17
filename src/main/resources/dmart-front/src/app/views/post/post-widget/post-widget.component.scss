@@ -360,6 +360,17 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     position: relative;
   }
 
+  .box>.box-comments>.show-more {
+    color: #9197A3;
+    cursor: pointer;
+  }
+
+  .box>.box-comments>.show-more:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+
   .box>.box-comments>.comment {
     border-top: 1px solid rgba(163, 162, 162, 0.575);
     /* margin: 0; */
@@ -1146,6 +1157,16 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     margin: 0;
     overflow: hidden;
     position: relative;
+  }
+
+  .box>.box-comments>.show-more {
+    color: #9197A3;
+    cursor: pointer;
+  }
+
+  .box>.box-comments>.show-more:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
 
   .box>.box-comments>.comment {
