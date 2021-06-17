@@ -26,9 +26,26 @@ export class ProfileService {
   ) {}
   message: string = "";
   progress: number = 0;
+
   getProfile(pseudoname: string): Observable<any> {
     return this.https
       .get(API_GATEWAY_URL + CORE_PROFILE_URN + "/find-profile/" + pseudoname)
+      .pipe(
+        map((response: any) => response),
+        catchError((err) => {
+          return throwError(err);
+        })
+      );
+  }
+
+  getCustomProfileByUsername(pseudoname: string): Observable<any> {
+    return this.https
+      .get(
+        API_GATEWAY_URL +
+          CORE_PROFILE_URN +
+          "/find-custom-profile-by-username/" +
+          pseudoname
+      )
       .pipe(
         map((response: any) => response),
         catchError((err) => {

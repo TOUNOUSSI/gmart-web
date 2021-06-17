@@ -21,6 +21,19 @@ export class MessengerService {
       .then((response: Response) => response);
   }
 
+  addFriendRequest(pseudoname: string) {
+    console.log(
+      API_GATEWAY_URL + CORE_FRIEND_URN + "/add-friend-request/" + pseudoname
+    );
+    return this.https
+      .put(
+        API_GATEWAY_URL + CORE_FRIEND_URN + "/add-friend-request/" + pseudoname,
+        null
+      )
+      .toPromise()
+      .then((response: Response) => response);
+  }
+
   addFriend(pseudoname: string) {
     console.log(
       API_GATEWAY_URL + CORE_FRIEND_URN + "/add-new-friend/" + pseudoname
