@@ -1,29 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { FriendsAvatarComponent } from './friends-avatar.component';
+import { SearchAvatarComponent } from "./search-avatar.component";
 
-<<<<<<< HEAD
-describe('FriendsWidgetAvatarComponent', () => {
-=======
-describe('FriendsAvatarComponent', () => {
->>>>>>> 75eaa79 (first commit)
-  let component: FriendsAvatarComponent;
-  let fixture: ComponentFixture<FriendsAvatarComponent>;
+describe("SearchAvatarComponent", () => {
+  let component: SearchAvatarComponent;
+  let fixture: ComponentFixture<SearchAvatarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FriendsAvatarComponent ]
-    })
-    .compileComponents();
+      declarations: [SearchAvatarComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FriendsAvatarComponent);
+    fixture = TestBed.createComponent(SearchAvatarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

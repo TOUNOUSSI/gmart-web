@@ -7,7 +7,6 @@ import {
   EventEmitter,
 } from "@angular/core";
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
-import { element } from "protractor";
 
 @Component({
   selector: "search-avatar",

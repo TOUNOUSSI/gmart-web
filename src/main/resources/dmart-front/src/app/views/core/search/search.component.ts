@@ -75,7 +75,7 @@ export class SearchComponent implements OnInit {
     console.log("OnChange Event called!");
     let input = document.getElementById("inpt_search") as HTMLInputElement;
     let searchIcon = document.getElementById("search-icon") as HTMLLabelElement;
-    if (input.value != "") {
+    if (input.value != undefined) {
       this.onMouseEnter();
     } else {
       this.onMouseLeave();
@@ -86,7 +86,7 @@ export class SearchComponent implements OnInit {
    * onMouseEnter
    */
   onMouseEnter() {
-    console.log("onMouseEnter Event called!");
+    console.log("onMouseFocus Event called!");
     this.isOpen = true;
     let searchIcon = document.getElementById("search-icon") as HTMLLabelElement;
     searchIcon.classList.remove("search-change-inactive");
@@ -107,7 +107,6 @@ export class SearchComponent implements OnInit {
 
     let searchIcon = document.getElementById("search-icon") as HTMLLabelElement;
     let input = document.getElementById("inpt_search") as HTMLInputElement;
-
     //Check either the input field is active or not
     if (input.value === undefined || input.value === "") {
       this.matchingUsers = [];
