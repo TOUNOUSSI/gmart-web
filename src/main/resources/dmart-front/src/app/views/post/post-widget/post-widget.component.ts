@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import { SafeResourceUrl } from "@angular/platform-browser";
 import { Comment } from "src/app/models/comment.model";
 import { Post } from "src/app/models/post.model";
@@ -32,7 +32,7 @@ export class PostWidgetComponent implements OnInit {
   //New comment
   public newComment: Comment = new Comment();
 
-  constructor(private commentService: CommentService) {}
+  constructor(private commentService: CommentService) { }
 
   ngOnInit() {
     if (this.comments.length <= 3) {
@@ -75,4 +75,5 @@ export class PostWidgetComponent implements OnInit {
     }
     console.log(this.counter + " shown comments");
   }
+
 }

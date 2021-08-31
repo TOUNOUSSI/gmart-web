@@ -1,27 +1,21 @@
 <div class="box image" id="{{ id }}">
   <div class="box-header">
     <h3>
-      <img
-        [src]="profileImageAvatar"
-        alt="{{ loadedProfile.firstname }} {{ loadedProfile.lastname }}"
-      />
+      <img [src]="profileImageAvatar" alt="{{ loadedProfile.firstname }} {{ loadedProfile.lastname }}" />
       <a [routerLink]="['/admin/profile/', loadedProfile.pseudoname]">
         {{ loadedProfile.firstname }}
-        {{ loadedProfile.lastname }}</a
-      >
-      <span class="post-date" style="padding-top: 14px"
-        >{{ post.postDate | date: "MMM d, y, h:mm:ss a" }}
-        <i class="fa fa-globe"></i
-      ></span>
+        {{ loadedProfile.lastname }}</a>
+      <span class="post-date" style="padding-top: 14px">{{ post.postDate | date: "MMM d, y, h:mm:ss a" }}
+        <i class="fa fa-globe"></i></span>
     </h3>
-    <span style="background-color: transparent"
-      ><i class="fa fa-angle-down"></i
-    ></span>
+    <span style="background-color: transparent"><i class="fa fa-angle-down"></i></span>
     <div class="window"><span></span></div>
   </div>
   <div class="box-content">
-    <div class="content">
-      <img src="https://goo.gl/nvqkEz" alt="" />
+    <div class="content" *ngIf='post.pictures !== undefined && post.pictures.length > 0'>
+      <div *ngFor="let image of post.pictures">
+        <img max-height="560px" [src]="['data:image/jpg;base64,'+ image.data]" alt="" />
+      </div>
     </div>
     <div class="bottom">
       <p>{{ post.description }}</p>
@@ -40,39 +34,22 @@
   </div>
 
   <div class="box-comments">
-    <span
-      class="show-more"
-      (click)="getMoreComments()"
-      *ngIf="counter < comments?.length"
-    >
+    <span class="show-more" (click)="getMoreComments()" *ngIf="counter < comments?.length">
       View {{ this.comments.length - this.counter }} more comments
     </span>
-    <dmart-comment-box
-      *ngFor="
+    <dmart-comment-box *ngFor="
         let comment of comments
           | orderBy: 'order':true
           | slice: comments?.length - counter:comments?.length;
         let i = index
-      "
-      [attr.data-index]="i"
-      [id]="comment.id"
-      [comment]="comment"
-    ></dmart-comment-box>
+      " [attr.data-index]="i" [id]="comment.id" [comment]="comment"></dmart-comment-box>
   </div>
 
   <div class="box-new-comment">
-    <img
-      [src]="profileImageAvatar"
-      alt="{{ loadedProfile.firstname }} {{ loadedProfile.lastname }}"
-    />
+    <img [src]="profileImageAvatar" alt="{{ loadedProfile.firstname }} {{ loadedProfile.lastname }}" />
     <div class="content">
-      <div class="row">
-        <textarea
-          placeholder="write a comment..."
-          [(ngModel)]="newComment.value"
-          (keydown.enter)="submitCommentAfterKeyUpEvent()"
-        ></textarea>
-      </div>
+      <textarea class="row" placeholder=" write a comment..." [(ngModel)]="newComment.value"
+        (keydown.enter)="submitCommentAfterKeyUpEvent()"></textarea>
       <div class="row">
         <span class="ion-android-attach"></span>
         <span class="fa fa-smile-o"></span>
