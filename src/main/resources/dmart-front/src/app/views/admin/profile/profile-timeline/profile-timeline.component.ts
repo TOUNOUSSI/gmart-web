@@ -42,6 +42,7 @@ export class ProfileTimelineComponent implements OnInit {
 
   profileImageAvatar: SafeResourceUrl;
   profileCover: SafeResourceUrl;
+  fileToUpload: File
 
   // Counter used to handle pageable posts
   counter: number = 0;
@@ -53,7 +54,7 @@ export class ProfileTimelineComponent implements OnInit {
     private cookieService: CookieService,
     private _sanitizer: DomSanitizer,
     public dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit() {
     //List of post
@@ -129,7 +130,7 @@ export class ProfileTimelineComponent implements OnInit {
    */
   submitTextPostKeyUpEvent() {
     console.log("key up performed : ");
-    this.postService.save(this.textPost).subscribe((savedPost) => {
+    this.postService.save(this.textPost, this.fileToUpload).subscribe((savedPost) => {
       if (savedPost !== undefined) {
         console.log("Posted");
         this.posts.unshift(savedPost);

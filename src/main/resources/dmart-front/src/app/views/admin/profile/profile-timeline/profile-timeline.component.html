@@ -73,27 +73,17 @@
         <div class="box image" *ngIf="isMyProfile">
           <div class="box-header">
             <div class="box-avatar">
-              <img
-                [src]="profileImageAvatar"
-                alt="{{ loadedProfile.firstname }} {{ loadedProfile.lastname }}"
-              />
+              <img [src]="profileImageAvatar" alt="{{ loadedProfile.firstname }} {{ loadedProfile.lastname }}" />
             </div>
           </div>
 
           <div class="box-new-post">
             <div class="content">
               <div class="content-row">
-                <button
-                  class="btn-new-post-open-modal"
-                  data-target="#details"
-                  data-toggle="modal"
-                  (click)="openDialog()"
-                >
-                  <textarea
-                    placeholder="What's in your head ?"
-                    [(ngModel)]="textPost.description"
-                    (keydown.enter)="submitTextPostKeyUpEvent()"
-                  ></textarea>
+                <button class="btn-new-post-open-modal" data-target="#details" data-toggle="modal"
+                  (click)="openDialog()">
+                  <textarea placeholder="What's in your head ?" [(ngModel)]="textPost.description"
+                    (keydown.enter)="submitTextPostKeyUpEvent()"></textarea>
                 </button>
               </div>
             </div>
@@ -105,12 +95,10 @@
                 <span class="box-buttons-font"> Live</span>
               </button>
               <button>
-                <i class="fa fa-picture-o"></i
-                ><span class="box-buttons-font"> Photo/Video</span>
+                <i class="fa fa-picture-o"></i><span class="box-buttons-font"> Photo/Video</span>
               </button>
               <button>
-                <i class="fa fa-flag"></i
-                ><span class="box-buttons-font"> Life Event</span>
+                <i class="fa fa-flag"></i><span class="box-buttons-font"> Life Event</span>
               </button>
             </div>
           </div>
@@ -118,15 +106,9 @@
         <span id="trigger-changes-id"></span>
 
         <aside class="ml4 post-widget-ul" id="listOfPostWidgets">
-          <dmart-post-widget
-            *ngFor="let post of posts | slice: 0:counter; let i = index"
-            [attr.data-index]="i"
-            [id]="post.id"
-            [post]="post"
-            [comments]="post.comments"
-            [loadedProfile]="loadedProfile"
-            [profileImageAvatar]="profileImageAvatar"
-          ></dmart-post-widget>
+          <dmart-post-widget *ngFor="let post of posts | slice: 0:counter; let i = index" [attr.data-index]="i"
+            [id]="post.id" [post]="post" [comments]="post.comments" [loadedProfile]="loadedProfile"
+            [profileImageAvatar]="profileImageAvatar"></dmart-post-widget>
         </aside>
       </div>
     </div>
