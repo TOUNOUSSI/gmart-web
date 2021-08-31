@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private toasterService: SnackbarService
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   login() {
     try {

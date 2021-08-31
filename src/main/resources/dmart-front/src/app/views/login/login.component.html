@@ -1,54 +1,165 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="mat-card">
-    <mat-card-header>
-      <mat-card-title>DATA MART</mat-card-title>
-    </mat-card-header>
 
-    <form
-      class="login-form"
-      (ngSubmit)="f.form.valid && login()"
-      #f="ngForm"
-      novalidate
-    >
-      <mat-card-content>
-        <mat-form-field class="login-full-width">
-          <input
-            name="username"
-            matInput
-            placeholder="Username or email"
-            [(ngModel)]="user.username"
-            #username="ngModel"
-            required
-          />
-        </mat-form-field>
+  <div class="login-left-column">
+    <div class="login-left-box">
+      <div>
+        <img class="dm-logo img" src="../../../assets/img/brand/logo.svg" />
+      </div>
+      <h2>Facebook helps you connect and share with the people in your life.</h2>
+    </div>
+  </div>
 
-        <mat-form-field class="login-full-width">
-          <input
-            name="password"
-            matInput
-            type="password"
-            placeholder="Password"
-            [(ngModel)]="user.password"
-            #password="ngModel"
-            required
-          />
-        </mat-form-field>
-      </mat-card-content>
-      <button type="submit" mat-stroked-button color="accent" class="btn-block">
-        Log In
-      </button>
-      <a routerLink="/signup">New to us? Sign Up.</a>
-      <div class="form-group">
-        <div class="row">
-          <div class="col-sm-6 col-sm-offset-3">
-            <input
-              type="hidden"
-              th:name="${_csrf.parameterName}"
-              th:value="${_csrf.token}"
-            />
+  <div class="login-right-column">
+    <div class="card">
+
+      <form class="login-form" autocomplete="off" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="login-input-wrapper">
+          <div class="login-full-width">
+            <input name="username" placeholder="Email address or phone number"
+              aria-label="Email address or phone number" [(ngModel)]="user.username" #username="ngModel" required />
+          </div>
+
+          <div class="login-full-width">
+            <input name="password" type="password" placeholder="Password" [(ngModel)]="user.password"
+              #password="ngModel" required />
           </div>
         </div>
+        <div class="login-input-wrapper">
+          <button type="submit" class="btn-block btn btn-primary">
+            Log In
+          </button>
+          <span class="fg-pwd-wrapper">
+            <a routerLink="/signup">Forgotten password?</a>
+          </span>
+
+        </div>
+        <div class="login-separator"></div>
+
+        <div class="login-button-wrapper">
+          <button type="submit" class="btn-block btn btn-success btn-register">
+            Create New Account
+          </button>
+
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="reg_pages_msg" class="login-right-column-footer">
+      <b><a href="#" class="link">Create a Page</a></b> for a celebrity, band or business.
+    </div>
+  </div>
+</div>
+<div>
+  <div class="">
+    <div class="login-footer">
+      <div class="pageFooter">
+        <ul class="i18nList localeSelectorList" data-nocookies="1">
+          <li>English (UK)</li>
+          <li><a class="_sv4" dir="ltr"
+              href="https://fr-fr.Linbook.com/login/device-based/regular/login/?login_attempt=1&amp;lwv=120&amp;lwc=1348028"
+              onclick="require('IntlUtils').setCookieLocale('fr_FR', 'en_GB', 'https:\/\/fr-fr.Linbook.com\/login\/device-based\/regular\/login\/?login_attempt=1&amp;lwv=120&amp;lwc=1348028', 'www_list_selector', 0); return false;"
+              title="French (France)">Français (France)</a></li>
+          <li><a class="_sv4" dir="rtl"
+              href="https://ar-ar.Linbook.com/login/device-based/regular/login/?login_attempt=1&amp;lwv=120&amp;lwc=1348028"
+              onclick="require('IntlUtils').setCookieLocale('ar_AR', 'en_GB', 'https:\/\/ar-ar.Linbook.com\/login\/device-based\/regular\/login\/?login_attempt=1&amp;lwv=120&amp;lwc=1348028', 'www_list_selector', 1); return false;"
+              title="Arabic">العربية</a></li>
+          <li><a class="_sv4" dir="ltr"
+              href="https://tz-ma.Linbook.com/login/device-based/regular/login/?login_attempt=1&amp;lwv=120&amp;lwc=1348028"
+              onclick="require('IntlUtils').setCookieLocale('tz_MA', 'en_GB', 'https:\/\/tz-ma.Linbook.com\/login\/device-based\/regular\/login\/?login_attempt=1&amp;lwv=120&amp;lwc=1348028', 'www_list_selector', 2); return false;"
+              title="Tamazight">ⵜⴰⵎⴰⵣⵉⵖⵜ</a></li>
+          <li><a class="_sv4" dir="ltr"
+              href="https://es-es.Linbook.com/login/device-based/regular/login/?login_attempt=1&amp;lwv=120&amp;lwc=1348028"
+              onclick="require('IntlUtils').setCookieLocale('es_ES', 'en_GB', 'https:\/\/es-es.Linbook.com\/login\/device-based\/regular\/login\/?login_attempt=1&amp;lwv=120&amp;lwc=1348028', 'www_list_selector', 3); return false;"
+              title="Spanish (Spain)">Español (España)</a></li>
+          <li><a class="_sv4" dir="ltr"
+              href="https://it-it.Linbook.com/login/device-based/regular/login/?login_attempt=1&amp;lwv=120&amp;lwc=1348028"
+              onclick="require('IntlUtils').setCookieLocale('it_IT', 'en_GB', 'https:\/\/it-it.Linbook.com\/login\/device-based\/regular\/login\/?login_attempt=1&amp;lwv=120&amp;lwc=1348028', 'www_list_selector', 4); return false;"
+              title="Italian">Italiano</a></li>
+          <li><a class="_sv4" dir="ltr"
+              href="https://de-de.Linbook.com/login/device-based/regular/login/?login_attempt=1&amp;lwv=120&amp;lwc=1348028"
+              onclick="require('IntlUtils').setCookieLocale('de_DE', 'en_GB', 'https:\/\/de-de.Linbook.com\/login\/device-based\/regular\/login\/?login_attempt=1&amp;lwv=120&amp;lwc=1348028', 'www_list_selector', 5); return false;"
+              title="German">Deutsch</a></li>
+          <li><a class="_sv4" dir="ltr"
+              href="https://pt-br.Linbook.com/login/device-based/regular/login/?login_attempt=1&amp;lwv=120&amp;lwc=1348028"
+              onclick="require('IntlUtils').setCookieLocale('pt_BR', 'en_GB', 'https:\/\/pt-br.Linbook.com\/login\/device-based\/regular\/login\/?login_attempt=1&amp;lwv=120&amp;lwc=1348028', 'www_list_selector', 6); return false;"
+              title="Portuguese (Brazil)">Português (Brasil)</a></li>
+          <li><a class="_sv4" dir="ltr"
+              href="https://hi-in.Linbook.com/login/device-based/regular/login/?login_attempt=1&amp;lwv=120&amp;lwc=1348028"
+              onclick="require('IntlUtils').setCookieLocale('hi_IN', 'en_GB', 'https:\/\/hi-in.Linbook.com\/login\/device-based\/regular\/login\/?login_attempt=1&amp;lwv=120&amp;lwc=1348028', 'www_list_selector', 7); return false;"
+              title="Hindi">हिन्दी</a></li>
+          <li><a class="_sv4" dir="ltr"
+              href="https://zh-cn.Linbook.com/login/device-based/regular/login/?login_attempt=1&amp;lwv=120&amp;lwc=1348028"
+              onclick="require('IntlUtils').setCookieLocale('zh_CN', 'en_GB', 'https:\/\/zh-cn.Linbook.com\/login\/device-based\/regular\/login\/?login_attempt=1&amp;lwv=120&amp;lwc=1348028', 'www_list_selector', 8); return false;"
+              title="Simplified Chinese (China)">中文(简体)</a></li>
+          <li><a class="_sv4" dir="ltr"
+              href="https://ja-jp.Linbook.com/login/device-based/regular/login/?login_attempt=1&amp;lwv=120&amp;lwc=1348028"
+              onclick="require('IntlUtils').setCookieLocale('ja_JP', 'en_GB', 'https:\/\/ja-jp.Linbook.com\/login\/device-based\/regular\/login\/?login_attempt=1&amp;lwv=120&amp;lwc=1348028', 'www_list_selector', 9); return false;"
+              title="Japanese">日本語</a></li>
+          <li><a role="button" class="" rel="dialog"
+              ajaxify="/settings/language/language/?uri=https%3A%2F%2Fja-jp.Linbook.com%2Flogin%2Fdevice-based%2Fregular%2Flogin%2F%3Flogin_attempt%3D1%26lwv%3D120%26lwc%3D1348028&amp;source=www_list_selector_more"
+              href="#" title="Show more languages"><i class="img sp_UKNExa6_rJF_1_5x sx_f408b0"></i></a></li>
+        </ul>
+        <div class="footer-separator"></div>
+        <div id="pageFooterChildren" role="contentinfo" aria-label="Linbook site links">
+          <ul class="i18nList pageFooterLinkList">
+            <li><a href="/r.php" title="Sign up for Linbook">Sign Up</a></li>
+            <li><a href="/login/" title="Log in to Linbook">Log In</a></li>
+            <li><a href="https://en-gb.messenger.com/" title="Take a look at Messenger.">Messenger</a></li>
+            <li><a href="/lite/" title="Linbook Lite for Android.">Linbook Lite</a></li>
+            <li><a href="https://en-gb.Linbook.com/watch/" title="Browse our Watch videos."> Watch </a></li>
+            <li><a href="/places/" title="Take a look at popular places on Linbook.">Places</a></li>
+            <li><a href="/games/" title="Check out Linbook games.">Games</a></li>
+            <li><a href="/marketplace/" title="Buy and sell on Linbook Marketplace.">Marketplace</a></li>
+            <li><a href="https://pay.Linbook.com/" target="_blank" title="Learn more about Linbook Pay">Linbook
+                Pay</a></li>
+            <li><a href="/jobs/" title="Apply for jobs and hire on Linbook.">Jobs</a></li>
+            <li><a href="https://www.oculus.com/" target="_blank" title="Learn more about Oculus">Oculus</a></li>
+            <li><a href="https://portal.Linbook.com/" target="_blank"
+                title="Learn more about Portal from Linbook">Portal</a></li>
+            <li><a
+                href="https://l.Linbook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2F&amp;h=AT3eWpY47pbNfUlgIy2chGtDDvW5jrKNun_h0yQzCOHRR_K4g3Ai4cD3PPgE4vs39O4ohuKNYZE4teHFifnV95tKwKYaV5WtD9TJ_szor_h-Vc46CBsODTgjYwh2sQ_ZNyndsGoThntf_BV-9M0ivQ"
+                title="Take a look at Instagram" target="_blank" rel="noopener nofollow"
+                data-lynx-mode="asynclazy">Instagram</a></li>
+            <li><a href="/local/lists/245019872666104/" title="Browse our Local Lists directory.">Local</a></li>
+            <li><a href="/fundraisers/" title="Donate to worthy causes.">Fundraisers</a></li>
+            <li><a href="/biz/directory/" title="Browse our Linbook Services directory.">Services</a></li>
+            <li><a href="/votinginformationcenter/?entry_point=c2l0ZQ%3D%3D"
+                title="See the Voting Information Centre">Voting Information Centre</a></li>
+            <li><a href="https://about.Linbook.com/" accesskey="8"
+                title="Read our blog, discover the resource centre and find job opportunities.">About</a></li>
+            <li><a
+                href="/ad_campaign/landing.php?placement=pflo&amp;campaign_id=402047449186&amp;nav_source=unknown&amp;extra_1=auto"
+                title="Advertise on Linbook">Create ad</a></li>
+            <li><a href="/pages/create/?ref_type=site_footer" title="Create a Page">Create Page</a></li>
+            <li><a href="https://developers.Linbook.com/?ref=pf" title="Develop on our platform.">Developers</a></li>
+            <li><a href="/careers/?ref=pf" title="Make your next career move to our brilliant company.">Careers</a></li>
+            <li><a data-nocookies="1" href="/privacy/explanation"
+                title="Learn about your privacy and Linbook.">Privacy</a></li>
+            <li><a href="/policies/cookies/" title="Learn about cookies and Linbook." data-nocookies="1">Cookies</a>
+            </li>
+            <li><a class="_41ug" data-nocookies="1" href="https://en-gb.Linbook.com/help/568137493302217"
+                title="Learn about AdChoices.">AdChoices<i class="img sp_iKBT0tYZ1aC_1_5x sx_7272b7"></i></a></li>
+            <li><a data-nocookies="1" href="/policies?ref=pf" accesskey="9"
+                title="Review our terms and policies.">Terms</a></li>
+            <li><a href="/help/?ref=pf" accesskey="0" title="Visit our Help Centre.">Help</a></li>
+            <li><a accesskey="6" class="accessible_elem" href="/settings"
+                title="View and edit your Linbook settings.">Settings</a></li>
+            <li><a accesskey="7" class="accessible_elem" href="/allactivity?privacy_source=activity_log_top_menu"
+                title="View your activity log">Activity log</a></li>
+          </ul>
+        </div>
+        <div class="mvl copyright">
+          <span> Linbook © 2021</span>
+        </div>
       </div>
-    </form>
-  </mat-card>
+    </div>
+  </div>
 </div>

@@ -1,8 +1,7 @@
-$breakpoint-mobile-down : "max-width:414px";
-$breakpoint-mobile-up : "min-width:414px";
+$breakpoint-mobile-down: "max-width:414px";
+$breakpoint-mobile-up: "min-width:414px";
 
 @media only screen and ($breakpoint-mobile-down) {
-
   html,
   body {
     height: 100%;
@@ -16,7 +15,7 @@ $breakpoint-mobile-up : "min-width:414px";
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   .app-header {
@@ -26,7 +25,7 @@ $breakpoint-mobile-up : "min-width:414px";
     left: 0;
     right: 0;
     z-index: 2;
-    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
   }
 
   .login-wrapper {
@@ -56,11 +55,11 @@ $breakpoint-mobile-up : "min-width:414px";
   }
 
   .box.back {
-    transform: scale(.95);
-    -webkit-transform: scale(.95);
-    -ms-transform: scale(.95);
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
     top: -20px;
-    opacity: .8;
+    opacity: 0.8;
     z-index: -1;
   }
 
@@ -71,11 +70,11 @@ $breakpoint-mobile-up : "min-width:414px";
     border-radius: 10px;
     position: absolute;
     top: -10px;
-    background: rgba(255, 255, 255, .6);
+    background: rgba(255, 255, 255, 0.6);
     left: 0;
-    transform: scale(.95);
-    -webkit-transform: scale(.95);
-    -ms-transform: scale(.95);
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
     z-index: -1;
   }
 
@@ -88,18 +87,16 @@ $breakpoint-mobile-up : "min-width:414px";
   .login-wrapper .login-full-width,
   .login-wrapper .btn-block {
     width: 100%;
+    font-size: 17px;
+    padding: 14px 16px;
   }
 
-  .login-wrapper mat-card-header {
-    text-align: center;
+  .login-full-width {
+    display: inline-block;
+    font-size: 14px;
+    margin: auto;
+    padding: 6px 0;
     width: 100%;
-    display: block;
-    font-weight: 700;
-  }
-
-  .login-wrapper mat-card-header mat-card-title {
-    font-size: 30px;
-    margin: 0;
   }
 
   .login-wrapper .mat-card {
@@ -109,7 +106,7 @@ $breakpoint-mobile-up : "min-width:414px";
   .login-wrapper .mat-stroked-button {
     border: 1px solid currentColor;
     line-height: 54px;
-    background: #FFF7FA;
+    background: #fff7fa;
   }
 
   .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
@@ -117,13 +114,10 @@ $breakpoint-mobile-up : "min-width:414px";
   }
 }
 
-
-
 /**
 For large screens 
 **/
 @media only screen and ($breakpoint-mobile-up) {
-
   html,
   body {
     height: 100%;
@@ -137,7 +131,7 @@ For large screens
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   .app-header {
@@ -147,12 +141,12 @@ For large screens
     left: 0;
     right: 0;
     z-index: 2;
-    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
   }
 
   .login-wrapper {
     height: 100%;
-    margin-top: 10%;
+    margin-top: 5%;
   }
 
   .positronx {
@@ -177,11 +171,11 @@ For large screens
   }
 
   .box.back {
-    transform: scale(.95);
-    -webkit-transform: scale(.95);
-    -ms-transform: scale(.95);
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
     top: -20px;
-    opacity: .8;
+    opacity: 0.8;
     z-index: -1;
   }
 
@@ -192,11 +186,11 @@ For large screens
     border-radius: 10px;
     position: absolute;
     top: -10px;
-    background: rgba(255, 255, 255, .6);
+    background: rgba(255, 255, 255, 0.6);
     left: 0;
-    transform: scale(.95);
-    -webkit-transform: scale(.95);
-    -ms-transform: scale(.95);
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
     z-index: -1;
   }
 
@@ -211,29 +205,204 @@ For large screens
     width: 100%;
   }
 
-  .login-wrapper mat-card-header {
-    text-align: center;
-    width: 100%;
-    display: block;
-    font-weight: 700;
-  }
-
-  .login-wrapper mat-card-header mat-card-title {
-    font-size: 30px;
-    margin: 0;
-  }
-
-  .login-wrapper .mat-card {
-    padding: 40px 70px 50px;
+  .login-wrapper .card {
+    padding-bottom: 18px;
+    padding-top: 14px;
   }
 
   .login-wrapper .mat-stroked-button {
     border: 1px solid currentColor;
     line-height: 54px;
-    background: #FFF7FA;
+    background: #fff7fa;
   }
 
   .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
     padding: 0.8375em 0;
+  }
+
+  .logo-container {
+    padding: 112px 0 16px;
+  }
+  .dm-logo {
+    height: 106px;
+    margin: -28px;
+  }
+  .login-wrapper > .login-left-column > .login-left-box > h2 {
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 32px;
+    padding-top: 15px;
+  }
+
+  .btn-primary {
+    background-color: #1877f2;
+  }
+
+  .btn-success {
+    background-color: #42b72a;
+  }
+
+  .login-left-column {
+    box-sizing: border-box;
+    margin-right: 0;
+    padding-right: 32px;
+    width: 580px;
+  }
+
+  .login-left-box {
+    display: inline-block;
+    margin-right: 15.999px;
+    vertical-align: top;
+    width: 516px;
+  }
+
+  .login-right-column {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .mat-card {
+    height: 456px;
+    width: 396px;
+    padding-bottom: 24px;
+    padding-top: 10px;
+  }
+  .card {
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    margin: 40px 0 0;
+    width: 396px;
+  }
+
+  .login-input-wrapper {
+    padding: 0px 14px 0px 14px;
+  }
+
+  .login-button-wrapper {
+    padding: 6px 14px 0px 14px;
+  }
+
+  .login-full-width {
+    display: inline-block;
+    font-size: 14px;
+    margin: auto;
+    padding: 6px 0;
+    width: 100%;
+  }
+
+  .login-full-width > input {
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    vertical-align: middle;
+  }
+
+  .login-full-width > input:focus {
+    outline: none;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #5a9cff;
+    color: #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    vertical-align: middle;
+  }
+
+  .login-full-width > input:active {
+    outline: none;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #5a9cff;
+    color: #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    vertical-align: middle;
+  }
+
+  .fg-pwd-wrapper {
+    text-align: center;
+    display: block;
+    padding-top: 11px;
+  }
+
+  .login-separator {
+    align-items: center;
+    border-bottom: 1px solid #dadde1;
+    display: flex;
+    margin: 20px 16px;
+    text-align: center;
+  }
+  .btn {
+    line-height: 34px;
+    font-weight: bold;
+  }
+
+  .btn-register {
+    width: 60px;
+  }
+
+  .login-right-column-footer {
+    margin-top: 28px;
+    display: block;
+    text-align: center;
+  }
+
+  .i18nList {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .login-footer {
+    display: block;
+    color: #737373;
+    margin: 0 auto;
+    width: 980px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
+
+  li {
+    padding-right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .footer-separator {
+    border-bottom: 1px solid #dddfe2;
+    font-size: 1px;
+    height: 8px;
+    margin-bottom: 8px;
+  }
+
+  .copyright {
+    font-size: 11px;
+    padding-left: 50px;
+  }
+  .mvl {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
