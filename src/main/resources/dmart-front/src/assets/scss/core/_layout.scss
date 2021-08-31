@@ -1,3 +1,4 @@
+$theme-background-color: #333333;
 // IE10&11 Flexbox fix
 @media all and (-ms-high-contrast: none) {
   html {
@@ -51,28 +52,27 @@ app-root {
 
 html:not([dir="rtl"]) {
   .sidebar {
-    margin-left: - $sidebar-width;
+    margin-left: -$sidebar-width;
   }
 
   .aside-menu {
     right: 0;
-    margin-right: - $aside-menu-width;
+    margin-right: -$aside-menu-width;
   }
 }
 
 html[dir="rtl"] {
   .sidebar {
-    margin-right: - $sidebar-width;
+    margin-right: -$sidebar-width;
   }
 
   .aside-menu {
     left: 0;
-    margin-left: - $aside-menu-width;
+    margin-left: -$aside-menu-width;
   }
 }
 
 @include media-breakpoint-up($breakpoint-mobile-up) {
-
   //
   // Header
   //
@@ -81,6 +81,7 @@ html[dir="rtl"] {
       position: fixed;
       z-index: $zindex-sticky;
       width: 100%;
+      background: $theme-background-color;
     }
 
     .app-body {
@@ -101,7 +102,7 @@ html[dir="rtl"] {
   }
 
   .sidebar-fixed {
-    .app-header+.app-body .sidebar {
+    .app-header + .app-body .sidebar {
       height: calc(100vh - #{$navbar-height});
     }
   }
@@ -143,7 +144,7 @@ html[dir="rtl"] {
   }
 
   .sidebar-off-canvas {
-    .app-header+.app-body .sidebar {
+    .app-header + .app-body .sidebar {
       height: calc(100vh - #{$navbar-height});
     }
   }
@@ -151,13 +152,13 @@ html[dir="rtl"] {
   html:not([dir="rtl"]) {
     .sidebar-compact {
       .sidebar {
-        margin-left: - $sidebar-compact-width;
+        margin-left: -$sidebar-compact-width;
       }
     }
 
     .sidebar-minimized {
       .sidebar {
-        margin-left: - $sidebar-minimized-width;
+        margin-left: -$sidebar-minimized-width;
       }
     }
   }
@@ -165,13 +166,13 @@ html[dir="rtl"] {
   html[dir="rtl"] {
     .sidebar-compact {
       .sidebar {
-        margin-right: - $sidebar-compact-width;
+        margin-right: -$sidebar-compact-width;
       }
     }
 
     .sidebar-minimized {
       .sidebar {
-        margin-right: - $sidebar-minimized-width;
+        margin-right: -$sidebar-minimized-width;
       }
     }
   }
@@ -191,7 +192,7 @@ html[dir="rtl"] {
   }
 
   .aside-menu-fixed {
-    .app-header+.app-body .aside-menu {
+    .app-header + .app-body .aside-menu {
       height: calc(100vh - #{$navbar-height});
     }
   }
@@ -205,13 +206,12 @@ html[dir="rtl"] {
   }
 
   .aside-menu-off-canvas {
-    .app-header+.app-body .aside-menu {
+    .app-header + .app-body .aside-menu {
       height: calc(100vh - #{$navbar-height});
     }
   }
 
   html:not([dir="rtl"]) {
-
     .aside-menu-fixed,
     .aside-menu-off-canvas {
       .aside-menu {
@@ -221,7 +221,6 @@ html[dir="rtl"] {
   }
 
   html[dir="rtl"] {
-
     .aside-menu-fixed,
     .aside-menu-off-canvas {
       .aside-menu {
@@ -254,23 +253,20 @@ html[dir="rtl"] {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
     html:not([dir="rtl"]) {
-
       .sidebar#{$infix}-show,
       .sidebar-show {
         .sidebar {
           margin-left: 0;
         }
 
-        @if $breakpoint !="xs" {
+        @if $breakpoint != "xs" {
           &.sidebar-fixed {
-
             .main,
             .app-footer {
               margin-left: $sidebar-width;
             }
 
             &.sidebar-compact {
-
               .main,
               .app-footer {
                 margin-left: $sidebar-compact-width;
@@ -279,7 +275,6 @@ html[dir="rtl"] {
 
             &.sidebar-minimized {
               @include media-breakpoint-down($breakpoint-mobile-down) {
-
                 .main,
                 .app-footer {
                   margin-left: $sidebar-width;
@@ -287,7 +282,6 @@ html[dir="rtl"] {
               }
 
               @include media-breakpoint-up($breakpoint-mobile-up) {
-
                 .main,
                 .app-footer {
                   margin-left: $sidebar-minimized-width;
@@ -322,9 +316,8 @@ html[dir="rtl"] {
           margin-right: 0;
         }
 
-        @if $breakpoint !="xs" {
+        @if $breakpoint != "xs" {
           &.aside-menu-fixed {
-
             .main,
             .app-footer {
               margin-right: $aside-menu-width;
@@ -341,23 +334,20 @@ html[dir="rtl"] {
     }
 
     html[dir="rtl"] {
-
       .sidebar#{$infix}-show,
       .sidebar-show {
         .sidebar {
           margin-right: 0;
         }
 
-        @if $breakpoint !="xs" {
+        @if $breakpoint != "xs" {
           &.sidebar-fixed {
-
             .main,
             .app-footer {
               margin-right: $sidebar-width;
             }
 
             &.sidebar-compact {
-
               .main,
               .app-footer {
                 margin-right: $sidebar-compact-width;
@@ -366,7 +356,6 @@ html[dir="rtl"] {
 
             &.sidebar-minimized {
               @include media-breakpoint-down($breakpoint-mobile-down) {
-
                 .main,
                 .app-footer {
                   margin-right: $sidebar-width;
@@ -374,7 +363,6 @@ html[dir="rtl"] {
               }
 
               @include media-breakpoint-up($breakpoint-mobile-up) {
-
                 .main,
                 .app-footer {
                   margin-right: $sidebar-minimized-width;
@@ -409,9 +397,8 @@ html[dir="rtl"] {
           margin-left: 0;
         }
 
-        @if $breakpoint !="xs" {
+        @if $breakpoint != "xs" {
           &.aside-menu-fixed {
-
             .main,
             .app-footer {
               margin-left: $aside-menu-width;
@@ -439,7 +426,7 @@ html[dir="rtl"] {
         }
       }
 
-      @if $breakpoint=="xs" {
+      @if $breakpoint== "xs" {
         @include media-breakpoint-down(xs) {
           .main {
             position: relative;
@@ -452,7 +439,7 @@ html[dir="rtl"] {
               width: 100%;
               height: 100%;
               content: "";
-              background: rgba(0, 0, 0, .7);
+              background: rgba(0, 0, 0, 0.7);
               animation: opacity $layout-transition-speed;
             }
           }
@@ -488,7 +475,8 @@ html[dir="rtl"] {
 .sidebar,
 .main,
 .aside-menu {
-  transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
+  transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed,
+    width $layout-transition-speed, flex $layout-transition-speed;
 }
 
 .sidebar-nav {
@@ -511,9 +499,7 @@ html[dir="rtl"] {
 
     @if $navbar-brand-bg==transparent {
       background-color: $navbar-bg;
-    }
-
-    @else {
+    } @else {
       background-color: $navbar-brand-bg;
     }
 
@@ -522,9 +508,7 @@ html[dir="rtl"] {
     .navbar-toggler {
       @if (lightness($navbar-brand-bg) > 40) {
         color: $navbar-color;
-      }
-
-      @else {
+      } @else {
         color: #fff;
       }
     }
@@ -533,7 +517,7 @@ html[dir="rtl"] {
       position: absolute;
       top: 0;
       left: 50%;
-      margin-left: - ($navbar-brand-width / 2);
+      margin-left: -($navbar-brand-width / 2);
     }
   }
 
