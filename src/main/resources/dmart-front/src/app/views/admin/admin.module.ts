@@ -23,12 +23,13 @@ import { AngularMaterialModule } from "src/app/angular-material.module";
 import { ProfileAvatarComponent } from "./profile/profile-avatar/profile-avatar.component";
 import { BsModalService } from "ngx-bootstrap/modal";
 import { PostModule } from "../post/post.module";
-import { PostWidgetComponent } from "../post/post-widget/post-widget.component";
 import { NewPostModalComponent } from "../post/new-post-modal/new-post-modal.component";
 import {
   PushNotificationComponent,
   PushNotificationModule,
 } from "../core/push-notification";
+import { DashboardTimelineComponent } from './dashboard/dashboard-timeline/dashboard-timeline.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -42,8 +43,7 @@ import {
     MatCardModule,
     AngularMaterialModule,
     PostModule,
-    PushNotificationModule,
-  ],
+    PushNotificationModule],
 
   declarations: [
     DashboardComponent,
@@ -52,8 +52,9 @@ import {
     ProfileHeaderComponent,
     ProfileBodyComponent,
     ProfileTimelineComponent,
+    DashboardTimelineComponent,
   ],
   entryComponents: [NewPostModalComponent, PushNotificationComponent],
   providers: [BsModalService, CookieService],
 })
-export class AdminModule {}
+export class AdminModule { }
