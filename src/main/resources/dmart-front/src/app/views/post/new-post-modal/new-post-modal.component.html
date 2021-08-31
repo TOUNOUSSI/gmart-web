@@ -1,24 +1,138 @@
-<mat-dialog-content [formGroup]="form">
-  <mat-form-field appearance="fill">
-    <mat-label>Type de post</mat-label>
-    <mat-select [(value)]="post.type">
-      <mat-option *ngFor="let postType of postTypes" [value]="postType.value">
-        {{ postType.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br />
-  <mat-form-field>
-    <input
-      matInput
-      placeholder="Post"
-      formControlName="description"
-      [(ngModel)]="post.description"
-    />
-  </mat-form-field>
-</mat-dialog-content>
+<div class="dialog-container ">
 
-<mat-dialog-actions>
-  <button class="mat-raised-button" (click)="close()">Close</button>
-  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
-</mat-dialog-actions>
+  <div class=" modal-row">
+    <div class="header">
+      <div class="create-post-modal-header">
+        <h2>Create Post</h2>
+      </div>
+    </div>
+    <div class="close-modal">
+      <div aria-label="Close" class="close-font" role="button" tabindex="0">
+        <span class="x-close " (click)="close()">X</span>
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <div class="box-header">
+      <h3>
+        <img [src]="data.profileImageAvatar"
+          alt="{{ data.loadedProfile.firstname }} {{ data.loadedProfile.lastname }}" />
+        <a [routerLink]="['/admin/profile/', data.loadedProfile.pseudoname]">
+          {{ data.loadedProfile.firstname }}
+          {{ data.loadedProfile.lastname }}</a>
+        <span class="post-date" style="padding-top: 14px">{{ post.postDate | date: "MMM d, y, h:mm:ss a" }}
+          <i class="fa fa-globe"></i></span>
+      </h3>
+      <span style="background-color: transparent"><i class="fa fa-angle-down"></i></span>
+      <div class="window"><span></span></div>
+    </div>
+  </div>
+
+  <div class="modal-body-form">
+    <form [formGroup]="form" appearance="fill">
+      <div appearance="fill" class="post-textarea">
+        <textarea class="post-textarea" placeholder="What's on your mind! {{data.loadedProfile.firstname}} ?"
+          formControlName="description" [(ngModel)]="post.description"></textarea>
+      </div>
+
+      <div aria-label="Attached media" id="media_container" (mouseenter)="onMouseEnterDiv()"
+        (mouseleave)="onMouseLeaveDiv()" class="media-container" role="group">
+        <div class="img-container" style="inset: calc(0% + 0px);">
+          <div class="card">
+            <div class="preview">
+              <img class="img-auto-resize" #img draggable="false" *ngIf="isMediaSelected" [src]="mediaImage" />
+            </div>
+            <div #mediaframe class="media-frame show" *ngIf="isMediaSelected">
+              <div class="card">
+                <div class="media-edit-container">
+                  <div aria-label="Edit" class="media-edit-btn" role="button" tabindex="0">
+                    <div class="media-preview-container">
+                      <div class="media-preview-card">
+                        <div class="media-preview-frame">
+                          <i class="fas fa-edit"></i>
+                        </div>
+                        <div class="selected-media-edit">
+                          <span class="" dir="auto"><span class="">Edit</span></span>
+                        </div>
+                      </div>
+                      <div class="" data-visualcompletion="ignore">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-edit-container">
+                  <div aria-label="Add Photos/Videos" class="" role="button" tabindex="0">
+                    <div class="media-preview-container">
+                      <div class="media-preview-card">
+                        <div class="media-preview-frame">
+                          <i class="fas fa-image"></i>
+                        </div>
+                        <div class="selected-media-edit">
+                          <span class="" dir="auto"> <span class="media-default"> Add Photos/Videos </span></span>
+                        </div>
+                      </div>
+                      <div class="" data-visualcompletion="ignore"></div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+            <div class="close-media-container" *ngIf="isMediaSelected" (click)='clearSelectedInput()'>
+              <div class="close-preview">
+                <span class="" dir="auto"> <span class="media-default"> X </span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <input accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv"
+          class="select-image" (change)="onFileSelect($event.target.files)" multiple="" type="file">
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <br />
+
+
+
+
+
+
+  <div class="new-post-modal-footer">
+    <div class="add-to-your-post-txt">
+      <a href="#">
+        <p>Add to your post</p>
+      </a>
+    </div>
+    <div class="add-to-your-post-fonts">
+      <div class="footer-container">
+
+        <div class="font-div">
+          <span><i class="fas fa-microphone" style="color: rgb(255, 0, 76);"></i></span>
+        </div>
+        <div class="font-div">
+          <span><i class="fas fa-file-image" style="color: rgba(19, 255, 157, 0.808);"></i></span>
+        </div>
+        <div class="font-div">
+          <span><i class="fas fa-user-tag" style="color: rgb(14, 123, 212);"></i></span>
+        </div>
+        <div class="font-div">
+          <span><i class="fas fa-map-marker" style="color: rgb(255, 102, 0);"></i></span>
+        </div>
+        <div class="font-div">
+          <span><i class="fas fa-smile" style="color: rgb(255, 196, 0);"></i></span>
+        </div>
+
+      </div>
+    </div>
+    <div class="btn-actions">
+      <button class="btn btn-primary" (click)="addNewPost()">Post</button>
+    </div>
+  </div>
+
+</div>
