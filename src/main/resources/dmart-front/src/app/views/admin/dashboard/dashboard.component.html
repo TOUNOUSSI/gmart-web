@@ -1,6 +1,14 @@
-<noscript
-  ><h2 style="color: #ff0000">
+<noscript>
+  <h2 style="color: #ff0000">
     Seems your browser doesn't support Javascript! Websocket relies on
     Javascript being enabled. Please enable Javascript and reload this page!
-  </h2></noscript
->
+  </h2>
+</noscript>
+
+<div class="dashboard-body">
+  <div>
+    <div class="row"></div>
+    <dmart-dashboard-timeline [profile]="loadedProfile" [profileImageAvatar]="profileImageAvatar">
+    </dmart-dashboard-timeline>
+  </div>
+</div>

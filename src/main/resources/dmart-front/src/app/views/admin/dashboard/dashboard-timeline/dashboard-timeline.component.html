@@ -1,0 +1,52 @@
+<div id="timeline-container" class="timeline-container">
+    <div class="dashboard-timeline">
+        <div class="row">
+            <div class="dashboard-timeline-col">
+                <div class="box image">
+                    <div class="box-header">
+                        <div class="box-avatar">
+                            <img [src]="profileImageAvatar"
+                                alt="{{ loadedProfile.firstname }} {{ loadedProfile.lastname }}" />
+                        </div>
+                    </div>
+
+                    <div class="box-new-post">
+                        <div class="content">
+                            <div class="content-row">
+                                <button class="btn-new-post-open-modal" data-target="#details" data-toggle="modal"
+                                    (click)="openDialog()">
+                                    <textarea placeholder="What's in your head ?" [(ngModel)]="textPost.description"
+                                        (keydown.enter)="submitTextPostKeyUpEvent()"></textarea>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-buttons">
+                        <div class="row">
+                            <button>
+                                <i style="color:rgba(236, 74, 74, 0.973)" class="fas fa-camera"></i>
+                                <span class="box-buttons-font"> Live Video</span>
+                            </button>
+                            <button>
+                                <i style="color:rgba(74, 236, 109, 0.973)" class="fas fa-image"></i><span
+                                    class="box-buttons-font"> Photo/Video</span>
+                            </button>
+                            <button>
+                                <i style="color:rgba(243, 247, 23, 0.973)" class="fas fa-flag"></i><span
+                                    class="box-buttons-font"> Life Event</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <span id="trigger-changes-id"></span>
+
+                <aside class="ml4 post-widget-ul" id="listOfPostWidgets">
+                    <dmart-post-widget *ngFor="let post of posts | slice: 0:counter; let i = index"
+                        [attr.data-index]="i" [id]="post.id" [post]="post" [comments]="post.comments"
+                        [loadedProfile]="loadedProfile" [profileImageAvatar]="profileImageAvatar">
+                    </dmart-post-widget>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
