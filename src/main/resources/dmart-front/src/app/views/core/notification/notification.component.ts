@@ -38,9 +38,9 @@ export class NotificationComponent implements OnInit {
     private cookieService: CookieService,
     private pushNotificationService: PushNotificationService,
     private dmartUtils: DmartUtilsService
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   acceptFriendRequestFromNotification(notification: NotificationDTO) {
     let receiver = notification.sender;
@@ -69,9 +69,38 @@ export class NotificationComponent implements OnInit {
               );
 
               //this.updateNotificationStatus(notification.id);
-              this.deleteNotification(notification.id);
+              this.deleteFriendRequestNotification(notification);
             });
         });
+    });
+  }
+
+  /**
+   * Delete friend request notification after subbmition of acceptance ACK
+   * we must update the viewed notification status to became old notification 
+   * 
+   * @param notificationID
+   */
+  deleteFriendRequestNotification(notification: NotificationDTO) {
+    this.removeFriendRequestFromCheckedNotification(notification);
+    this.removeFriendRequestFromNonCheckedNotification(notification);
+
+    this.pushNotificationService
+      .deleteNotification(notification.id)
+      .subscribe((resp) => {
+        console.log("Notification has been deleted");
+      });
+  }
+
+  removeFriendRequestFromCheckedNotification(notificationDTO: NotificationDTO) {
+    this.checkedNotifications = this.checkedNotifications.filter(notif => {
+      notif.id === notificationDTO.id;
+    });
+  }
+
+  removeFriendRequestFromNonCheckedNotification(notificationDTO: NotificationDTO) {
+    this.nonCheckedNotifications = this.nonCheckedNotifications.filter(notif => {
+      notif.id === notificationDTO.id;
     });
   }
 
@@ -82,20 +111,11 @@ export class NotificationComponent implements OnInit {
     this.pushNotificationService
       .changeNotificationStatusToOld(notificationID)
       .subscribe((resp) => {
-        console.log("Notification is old now");
+        console.log("Notification has been viewed");
       });
   }
 
-  /**
-   * After submitting friend request accept notification
-   * we must update the viewed notification status to became old notification */
-  deleteNotification(notificationID: string) {
-    this.pushNotificationService
-      .deleteNotification(notificationID)
-      .subscribe((resp) => {
-        console.log("Notification has been deleted");
-      });
-  }
+
 
   /**
    * Navigate to specific url with a refresh params (used when push changes detected

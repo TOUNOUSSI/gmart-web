@@ -96,7 +96,10 @@ export class DefaultLayoutComponent implements OnInit, AfterViewInit {
       startWith(""),
       map((value) => this._filter(value))
     );
+
+
     await this.profileService.getMyProfile().subscribe((profile) => {
+
       this.myProfile = profile;
       this.pseudoname = profile.pseudoname;
       console.log("Inside Default layout profile loading ... ");
@@ -120,15 +123,13 @@ export class DefaultLayoutComponent implements OnInit, AfterViewInit {
           this.notificationCounter = this.newNotifications.length;
         });
 
-      if (profile.pictures !== undefined && profile.pictures.length > 0) {
-        profile.pictures.forEach((picture) => {
-          if (picture.pictureType === "PROFILE_PICTURE") {
-            this.profileAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
-              "data:image/jpg;base64," + picture.data
-            );
-            this.avatarPayload = picture.data;
-          }
-        });
+      if (profile.avatar !== undefined && profile.avatar.length > 0) {
+
+        this.profileAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
+          "data:image/jpg;base64," + profile.avatar
+        );
+        this.avatarPayload = profile.avatar;
+
       } else {
         // In case there's no cover load the default GMART cover
         this.profileAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(

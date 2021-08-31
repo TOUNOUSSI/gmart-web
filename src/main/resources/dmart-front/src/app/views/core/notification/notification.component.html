@@ -1,90 +1,49 @@
-<a
-  class="nav-link"
-  data-toggle="dropdown"
-  href="#"
-  role="button"
-  aria-haspopup="true"
-  aria-expanded="false"
-  dropdownToggle
-  (click)="(false)"
-  ><i class="fa fa-bell"></i
-  ><span *ngIf="counter !== 0" class="badge badge-pill badge-danger">{{
+<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
+  dropdownToggle (click)="(false)"><i class="fa fa-bell"></i><span *ngIf="counter !== 0"
+    class="badge badge-pill badge-danger">{{
     counter
-  }}</span>
+    }}</span>
 
   <span *ngIf="counter === 0" class="badge badge-pill"></span>
 </a>
-<div
-  class="dropdown-menu dropdown-menu-right dropdown-small-device"
-  *dropdownMenu
-  aria-labelledby="simple-dropdown"
->
-  <div
-    class="dropdown-header text-center"
-    *ngIf="nonCheckedNotifications.length !== 0"
-  >
+<div class="dropdown-menu dropdown-menu-right dropdown-small-device" *dropdownMenu aria-labelledby="simple-dropdown">
+  <div class="dropdown-header text-center" *ngIf="nonCheckedNotifications.length !== 0">
     <strong>New Notifications</strong>
   </div>
 
   <span *ngFor="let notification of nonCheckedNotifications; let index = index">
-    <a
-      class="dropdown-item"
-      [routerLink]="[notification.data.url]"
-      (click)="updateNotificationStatus(notification.id)"
-    >
-      <dmart-notification-avatar
-        [id]="notification.id"
-        [avatar]="notification?.sender?.avatar"
-      ></dmart-notification-avatar>
+    <a class="dropdown-item" [routerLink]="[notification.data.url]" (click)="updateNotificationStatus(notification.id)">
+      <dmart-notification-avatar [id]="notification.id" [avatar]="notification?.sender?.avatar">
+      </dmart-notification-avatar>
 
       <span class="notification-body">
         {{ notification.body }}
         <span *ngIf="notification.type === 'FRIEND_REQUEST'">
-          <a
-            [routerLink]="['/admin/dashboard']"
-            role="button"
-            class="badge badge-success"
-            (click)="acceptFriendRequestFromNotification(notification)"
-            ><i class="fa fa-check"></i
-          ></a>
+          <a [routerLink]="['/admin/dashboard']" role="button" class="badge badge-success"
+            (click)="acceptFriendRequestFromNotification(notification)"><i class="fa fa-check"></i></a>
           <a href="#" role="button" class="badge badge-danger"
-            ><i class="fa fa-close"></i
-          ></a>
+            (click)="deleteFriendRequestNotification(notification)"><i class="fa fa-close"></i></a>
         </span>
       </span>
     </a>
   </span>
 
-  <div
-    class="dropdown-header text-center"
-    *ngIf="checkedNotifications.length !== 0"
-  >
+  <div class="dropdown-header text-center" *ngIf="checkedNotifications.length !== 0">
     <strong>Notifications</strong>
   </div>
 
   <span *ngFor="let notification of checkedNotifications; let index = index">
-    <a
-      class="dropdown-item"
-      (click)="navigateToUrlWithRefreshParams(notification.data.url)"
-    >
-      <dmart-notification-avatar
-        [id]="notification.id"
-        [avatar]="notification?.sender?.avatar"
-      ></dmart-notification-avatar>
+    <a class="dropdown-item" [routerLink]="[notification.data.url]">
+      <dmart-notification-avatar [id]="notification.id" [avatar]="notification?.sender?.avatar">
+      </dmart-notification-avatar>
 
       <span class="notification-body">
         {{ notification.body }}
         <span *ngIf="notification.type === 'FRIEND_REQUEST'">
-          <a
-            [routerLink]="['/admin/dashboard']"
-            role="button"
-            class="badge badge-success"
-            (click)="acceptFriendRequestFromNotification(notification)"
-            ><i class="fa fa-check"></i
-          ></a>
+          <a [routerLink]="['/admin/dashboard']" role="button" class="badge badge-success"
+            (click)="acceptFriendRequestFromNotification(notification)"><i class="fa fa-check"></i></a>
           <a href="#" role="button" class="badge badge-danger"
-            ><i class="fa fa-close"></i
-          ></a>
+            (click)="deleteFriendRequestNotification(notification)"><i class="fa fa-close"></i></a>
         </span>
       </span>
     </a>

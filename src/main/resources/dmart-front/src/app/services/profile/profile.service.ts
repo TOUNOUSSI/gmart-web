@@ -23,7 +23,7 @@ export class ProfileService {
   constructor(
     private https: HttpClient,
     private toasterService: SnackbarService
-  ) {}
+  ) { }
   message: string = "";
   progress: number = 0;
 
@@ -42,9 +42,9 @@ export class ProfileService {
     return this.https
       .get(
         API_GATEWAY_URL +
-          CORE_PROFILE_URN +
-          "/find-custom-profile-by-username/" +
-          pseudoname
+        CORE_PROFILE_URN +
+        "/find-custom-profile-by-username/" +
+        pseudoname
       )
       .pipe(
         map((response: any) => response),
@@ -64,6 +64,22 @@ export class ProfileService {
         })
       );
   }
+
+  getAvatarPayloadByUsername(username: string): Observable<any> {
+    return this.https
+      .get(API_GATEWAY_URL + CORE_PROFILE_URN + "/find-avatar-payload-by-username/" + username,
+        {
+          headers: { 'Content-Type': 'image/jpeg' },
+          responseType: 'blob' as 'json'
+        })
+      .pipe(
+        map((response: any) => response),
+        catchError((err) => {
+          return throwError(err);
+        })
+      );
+  }
+
   updateProfilePicture(fileToUpload: File): Observable<any> {
     const formData: FormData = new FormData();
     formData.append("file", fileToUpload, fileToUpload.name);

@@ -37,7 +37,7 @@ export class PushNotificationService {
   constructor(
     private https: HttpClient,
     private toasterService: SnackbarService
-  ) {}
+  ) { }
 
   getAllNotifications(username: string): Observable<any> {
     return this.https
@@ -95,7 +95,7 @@ export class PushNotificationService {
     notificationID: string
   ): Observable<any> {
     return this.https
-      .put(API_GATEWAY_URL + PUSH_NOTIFICATION_URN + "/viewed/", notificationID)
+      .put(API_GATEWAY_URL + PUSH_NOTIFICATION_URN + "/viewed", notificationID)
       .pipe(
         map((response: any) => response),
         catchError((err) => {

@@ -17,7 +17,7 @@ export class PostService {
   constructor(
     public https: HttpClient,
     private toasterService: SnackbarService
-  ) {}
+  ) { }
 
   getAllRecentPosts(): Observable<any> {
     return this.https
@@ -30,9 +30,14 @@ export class PostService {
       );
   }
 
-  save(post: Post) {
+  save(post: Post, fileToUpload: File) {
+    const formData: FormData = new FormData();
+    formData.append("file", fileToUpload, fileToUpload.name);
+    formData.append("post", JSON.stringify(post));
+
     return this.https
-      .post(API_GATEWAY_URL + CORE_POST_URN + "/add-new-post", post)
+      .post(API_GATEWAY_URL + CORE_POST_URN + "/add-new-post",
+        formData)
       .pipe(
         tap((response: any) => {
           this.toasterService.message = "Le Post a été ajouté avec succèes";
