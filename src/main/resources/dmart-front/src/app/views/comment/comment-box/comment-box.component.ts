@@ -17,15 +17,15 @@ export class CommentBoxComponent implements OnInit {
 
   profileImageAvatar: SafeResourceUrl;
 
-  constructor(private _sanitizer: DomSanitizer) {}
+  constructor(private _sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     if (
-      this.comment.commenterProfile.avatarPayload !== undefined &&
-      this.comment.commenterProfile.avatarPayload !== null
+      this.comment.commenterProfile.avatar !== undefined &&
+      this.comment.commenterProfile.avatar !== null
     ) {
       this.profileImageAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(
-        "data:image/jpg;base64," + this.comment.commenterProfile.avatarPayload
+        "data:image/jpg;base64," + this.comment.commenterProfile.avatar
       );
     } else {
       this.profileImageAvatar = this._sanitizer.bypassSecurityTrustResourceUrl(

@@ -1,8 +1,7 @@
 $comment-bg-color: rgb(103 102 102 / 12%);
 
-//Tablets, Laptops and desktop screens 
+//Tablets, Laptops and desktop screens
 @media only screen and(min-width: 415px) {
-
   .timeline-container-scroll {
     margin: 60px 0;
   }
@@ -30,10 +29,17 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     margin: 0;
     padding: 0 10px;
     width: 100%;
+    outline: none;
   }
 
+  textarea :focus {
+    outline: none;
+  }
+  textarea :focus-visible {
+    outline: none;
+  }
   h2 {
-    color: #9298A4;
+    color: #9298a4;
     font-weight: 400;
     letter-spacing: -1px;
     margin: 140px auto 80px;
@@ -48,35 +54,34 @@ $comment-bg-color: rgb(103 102 102 / 12%);
   .box {
     background: #333333;
     border-radius: 11px;
-    box-shadow: 0 0 50px 5px rgba(0, 0, 0, .25);
+    box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.25);
     height: auto;
     max-width: 100%;
     overflow: hidden;
     position: relative;
     margin-bottom: 18px;
-
   }
 
-  .box>[class*="box-"] {
+  .box > [class*="box-"] {
     margin: 0 auto;
     padding: 0 30px;
     position: relative;
   }
 
-  .box>[class*="box-"] img {
+  .box > [class*="box-"] img {
     display: block;
     width: 100%;
   }
 
-  .box>.box-header,
-  .box>.box-header {
+  .box > .box-header,
+  .box > .box-header {
     margin: 0 auto;
     padding: 4px 9px 0px;
     width: initial;
   }
 
-  .box>.box-header>h3,
-  .box>.box-header>h3 {
+  .box > .box-header > h3,
+  .box > .box-header > h3 {
     font-size: 15px;
     font-weight: 700;
     height: 60px;
@@ -86,32 +91,32 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     position: relative;
   }
 
-  .box>.box-header>h3>a,
-  .box>.box-header>h3>a {
+  .box > .box-header > h3 > a,
+  .box > .box-header > h3 > a {
     margin: 0;
     overflow: hidden;
     padding: 0;
     position: relative;
   }
 
-  .box>.box-header>h3>span,
-  .box>.box-header>h3>span {
-    color: #9197A3;
+  .box > .box-header > h3 > span,
+  .box > .box-header > h3 > span {
+    color: #9197a3;
     display: block;
     font-size: 13px;
     font-weight: 400;
     margin-top: -8px;
   }
 
-  .box>.box-header>h3>span .fa {
+  .box > .box-header > h3 > span .fa {
     font-size: 15px;
     margin-left: 5px;
     display: inline-block;
   }
 
-  .box>.box-header>span {
+  .box > .box-header > span {
     border-radius: 3px;
-    color: #BCBFC6;
+    color: #bcbfc6;
     cursor: pointer;
     font-size: 24px;
     height: 18px;
@@ -123,17 +128,17 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     top: 0;
   }
 
-  .box>.box-header>span:hover {
+  .box > .box-header > span:hover {
     color: #888;
   }
 
-  .box>.box-header>span>i {
+  .box > .box-header > span > i {
     height: 18px;
     line-height: 18px;
   }
 
-  .box>.box-header img,
-  .box>.box-header img {
+  .box > .box-header img,
+  .box > .box-header img {
     border-radius: 100px;
     float: left;
     height: 60px;
@@ -142,7 +147,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 60px;
   }
 
-  .box>.box-content {
+  .box > .box-content {
     margin: 0;
     overflow: hidden;
     padding: 0;
@@ -166,7 +171,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: initial;
   }
 
-  .bottom>p {
+  .bottom > p {
     color: whitesmoke;
     font-size: 15px;
     line-height: 20px;
@@ -174,7 +179,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     padding: 3px 0;
   }
 
-  .comment>.content>.bottom>p {
+  .comment > .content > .bottom > p {
     color: whitesmoke;
     /* font-size: 15px; */
     /* line-height: 20px; */
@@ -187,8 +192,8 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     float: left;
   }
 
-  .bottom>span {
-    background: linear-gradient(to top, rgba(0, 0, 0, .45), rgba(0, 0, 0, 0));
+  .bottom > span {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
     height: 160px;
     left: 0;
     line-height: 160px;
@@ -202,31 +207,31 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 100%;
   }
 
-  .bottom>span>span {
-    background: rgba(0, 0, 0, .35);
+  .bottom > span > span {
+    background: rgba(0, 0, 0, 0.35);
     border-radius: 4px;
     bottom: 0;
-    color: #FFF;
+    color: #fff;
     cursor: pointer;
     font-size: 20px;
     margin: 0 30px 25px auto;
-    opacity: .75;
+    opacity: 0.75;
     overflow: hidden;
     padding: 10px;
     position: absolute;
     right: 0;
     top: auto;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
-  .bottom>span>span:hover {
+  .bottom > span > span:hover {
     opacity: 1;
   }
 
-  .box>.box-click {
-    color: #4D679F;
+  .box > .box-click {
+    color: #4d679f;
     font-size: 13px;
     margin: 0 auto;
     overflow: hidden;
@@ -234,16 +239,16 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     position: relative;
   }
 
-  .box>.box-click>span {
+  .box > .box-click > span {
     cursor: pointer;
   }
 
-  .box>.box-click>span i {
+  .box > .box-click > span i {
     font-size: 18px;
     margin-right: 5px;
   }
 
-  .box>.box-comments {
+  .box > .box-comments {
     margin: 0;
     overflow: hidden;
     position: relative;
@@ -259,7 +264,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     margin-left: -13px;
   }
 
-  .comment>img {
+  .comment > img {
     border-radius: 100px;
     float: left;
     height: 35px;
@@ -269,7 +274,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 36px;
   }
 
-  .comment>.content {
+  .comment > .content {
     height: auto;
     line-height: 20px;
     margin: 0 0 0 7px;
@@ -284,7 +289,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     margin: 3px 0px 3px 0px;
   }
 
-  .comment>.content>h3 {
+  .comment > .content > h3 {
     float: left;
     font-size: 14px;
     font-weight: 600;
@@ -293,35 +298,35 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 150px;
   }
 
-  .comment>.content>span {
-    color: #9197A3;
+  .comment > .content > span {
+    color: #9197a3;
     font-size: 12px;
     font-weight: 400;
     text-transform: none;
   }
 
-  .comment>.content>p {
-    color: #4B4D53;
+  .comment > .content > p {
+    color: #4b4d53;
     font-size: 13px;
     margin: 0;
     padding: 0;
   }
 
-  .comment>.content>.bottom>p {
+  .comment > .content > .bottom > p {
     color: whitesmoke;
     position: relative;
     float: left;
     margin-bottom: 0px;
   }
 
-  .box>.box-new-comment {
+  .box > .box-new-comment {
     overflow: hidden;
     padding: 6px 17px;
     position: relative;
     border-radius: 4px;
   }
 
-  .box>.box-new-comment>img {
+  .box > .box-new-comment > img {
     border-radius: 100px;
     float: left;
     height: 36px;
@@ -331,19 +336,19 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     margin: 7px 8px 0px 0px;
   }
 
-  .box>.box-new-comment>.content {
+  .box > .box-new-comment > .content {
     border-radius: 7px;
     margin: 9px 12px 4px 0px;
     overflow: hidden;
     padding: 0;
     position: relative;
     width: initial;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
-  .box>.box-new-comment>.content>.row {
+  .box > .box-new-comment > .content > .row {
     background: transparent;
     display: inline-block;
     height: 32px;
@@ -351,13 +356,13 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     position: relative;
     vertical-align: middle;
     width: 100%;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
-  .box>.box-new-comment>.content>.row:last-child {
-    color: #C6C9D0;
+  .box > .box-new-comment > .content > .row:last-child {
+    color: #c6c9d0;
     font-size: 22px;
     height: 28px;
     line-height: 27px;
@@ -374,11 +379,11 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     font-size: 18px;
   }
 
-  .box>.box-new-comment>.content>.row:last-child>span {
+  .box > .box-new-comment > .content > .row:last-child > span {
     cursor: pointer;
   }
 
-  .box>.box-new-comment>.content>.row>textarea {
+  .box > .box-new-comment > .content > .row > textarea {
     /* border: 1px solid transparent; */
     border-radius: 4px;
     color: #555;
@@ -387,41 +392,41 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     resize: auto;
     width: calc(100% - 52px) !important;
 
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
   .box.update,
   .box.text {
-    border: 1px solid #E0E1E4;
+    border: 1px solid #e0e1e4;
     box-shadow: none;
     padding: 20px 0 0;
   }
 
-  .box.update>.box-header,
-  .box.text>.box-header {
+  .box.update > .box-header,
+  .box.text > .box-header {
     padding: 0 30px;
   }
 
-  .box.update>.box-header>span,
-  .box.text>.box-header>span {
+  .box.update > .box-header > span,
+  .box.text > .box-header > span {
     background: transparent;
-    color: #9298A4;
+    color: #9298a4;
     font-size: 32px;
     margin: -10px auto 0;
   }
 
-  .box.update>.box-content>.content>p,
-  .box.text>.box-content>.content>p {
-    border-top: 1px solid #F4F4F4;
-    color: #4D5057;
+  .box.update > .box-content > .content > p,
+  .box.text > .box-content > .content > p {
+    border-top: 1px solid #f4f4f4;
+    color: #4d5057;
     font-size: 14px;
     line-height: 22px;
     padding: 26px 30px;
   }
 
-  .box.update>.box-content>.content>.img {
+  .box.update > .box-content > .content > .img {
     margin: 0;
     overflow: hidden;
     padding: 0;
@@ -429,8 +434,8 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: initial;
   }
 
-  .box.update>.box-content>.content>.img:before {
-    border: 1px solid rgba(0, 0, 0, .25);
+  .box.update > .box-content > .content > .img:before {
+    border: 1px solid rgba(0, 0, 0, 0.25);
     bottom: 0;
     content: "";
     height: 100%;
@@ -441,44 +446,42 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 100%;
   }
 
-  .box.text>.box-buttons>.row>button {
+  .box.text > .box-buttons > .row > button {
     font-size: 13px;
   }
 
-  .box.text>.box-buttons>.row>button>span {
+  .box.text > .box-buttons > .row > button > span {
     font-size: 20px;
   }
 
-  .box.image>.box-new-comment>.content,
-  .box.image>.box-new-comment>.content>.row>textarea,
-  .box.video>.box-new-comment>.content,
-  .box.video>.box-new-comment>.content>.row>textarea {
-    background: #9298A4;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+  .box.image > .box-new-comment > .content,
+  .box.image > .box-new-comment > .content > .row > textarea,
+  .box.video > .box-new-comment > .content,
+  .box.video > .box-new-comment > .content > .row > textarea {
+    background: #9298a4;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
-
-  .box.image>.box-new-post>.content,
-  .box.image>.box-new-post>.content>.row>textarea,
-  .box.video>.box-new-post>.content,
-  .box.video>.box-new-post>.content>.row>textarea {
-    background: #9298A4;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+  .box.image > .box-new-post > .content,
+  .box.image > .box-new-post > .content > .row > textarea,
+  .box.video > .box-new-post > .content,
+  .box.video > .box-new-post > .content > .row > textarea {
+    background: #9298a4;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
     height: 30px;
-
   }
 
-  .box>.box-new-comment>.content>.row>textarea:focus,
-  .box.image>.box-new-comment>.content:active>.row {
+  .box > .box-new-comment > .content > .row > textarea:focus,
+  .box.image > .box-new-comment > .content:active > .row {
     background-color: $comment-bg-color;
   }
 
-  .box>.box-new-comment>.content>.row>textarea:focus,
-  .box.video .box-new-comment>.content:active>.row {
+  .box > .box-new-comment > .content > .row > textarea:focus,
+  .box.video .box-new-comment > .content:active > .row {
     background-color: $comment-bg-color;
   }
 
@@ -501,7 +504,6 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     overflow: hidden;
     /* width: 100%; */
     /* padding-top: 0;*/
-
   }
 
   textarea {
@@ -533,7 +535,6 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     padding-top: 0;
   }
 
-
   .box-avatar {
     padding: 9px 1px 1px 2px;
   }
@@ -552,35 +553,34 @@ $comment-bg-color: rgb(103 102 102 / 12%);
 
   .box {
     border-radius: 11px;
-    box-shadow: 0 0 50px 5px rgba(0, 0, 0, .25);
+    box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.25);
     height: auto;
     max-width: 100%;
     overflow: hidden;
     position: relative;
     margin-bottom: 18px;
-
   }
 
-  .box>[class*="box-"] {
+  .box > [class*="box-"] {
     margin: 0 auto;
     padding: 0 30px;
     position: relative;
   }
 
-  .box>[class*="box-"] img {
+  .box > [class*="box-"] img {
     display: block;
     width: 100%;
   }
 
-  .box>.box-header,
-  .box>.box-header {
+  .box > .box-header,
+  .box > .box-header {
     margin: 0 auto;
     padding: 4px 9px 0px;
     width: initial;
   }
 
-  .box>.box-header>h3,
-  .box>.box-header>h3 {
+  .box > .box-header > h3,
+  .box > .box-header > h3 {
     font-size: 15px;
     font-weight: 700;
     height: 60px;
@@ -590,29 +590,29 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     position: relative;
   }
 
-  .box>.box-header>h3>a,
-  .box>.box-header>h3>a {
+  .box > .box-header > h3 > a,
+  .box > .box-header > h3 > a {
     margin: 0;
     overflow: hidden;
     padding: 0;
     position: relative;
   }
 
-  .box>.box-header>h3>span,
-  .box>.box-header>h3>span {
+  .box > .box-header > h3 > span,
+  .box > .box-header > h3 > span {
     display: block;
     font-size: 13px;
     font-weight: 400;
     margin-top: -8px;
   }
 
-  .box>.box-header>h3>span .fa {
+  .box > .box-header > h3 > span .fa {
     font-size: 15px;
     margin-left: 5px;
     display: inline-block;
   }
 
-  .box>.box-header>span {
+  .box > .box-header > span {
     border-radius: 3px;
     cursor: pointer;
     font-size: 24px;
@@ -625,17 +625,17 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     top: 0;
   }
 
-  .box>.box-header>span:hover {
+  .box > .box-header > span:hover {
     color: #888;
   }
 
-  .box>.box-header>span>i {
+  .box > .box-header > span > i {
     height: 18px;
     line-height: 18px;
   }
 
-  .box>.box-header img,
-  .box>.box-header img {
+  .box > .box-header img,
+  .box > .box-header img {
     border-radius: 100px;
     float: left;
     height: 60px;
@@ -644,7 +644,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 60px;
   }
 
-  .box>.box-content {
+  .box > .box-content {
     border-radius: 4px 4px 7px 7px;
     overflow: hidden;
     padding: 0px 0px 0 0px;
@@ -667,17 +667,16 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     padding: 2px 2px;
     position: relative;
     width: initial;
-
   }
 
-  .bottom>p {
+  .bottom > p {
     font-size: 15px;
     line-height: 20px;
     margin: 0;
     padding: 3px 3px;
   }
 
-  .comment>.content>.bottom>p {
+  .comment > .content > .bottom > p {
     /* font-size: 15px; */
     /* line-height: 20px; */
     /* top: 16px; */
@@ -689,8 +688,8 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     float: left;
   }
 
-  .bottom>span {
-    background: linear-gradient(to top, rgba(0, 0, 0, .45), rgba(0, 0, 0, 0));
+  .bottom > span {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
     height: 160px;
     left: 0;
     line-height: 160px;
@@ -704,42 +703,42 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 100%;
   }
 
-  .bottom>span>span {
-    background: rgba(0, 0, 0, .35);
+  .bottom > span > span {
+    background: rgba(0, 0, 0, 0.35);
     border-radius: 4px;
     bottom: 0;
-    color: #FFF;
+    color: #fff;
     cursor: pointer;
     font-size: 20px;
     margin: 0 30px 25px auto;
-    opacity: .75;
+    opacity: 0.75;
     overflow: hidden;
     padding: 10px;
     position: absolute;
     right: 0;
     top: auto;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
-  .bottom>span>span:hover {
+  .bottom > span > span:hover {
     opacity: 1;
   }
 
-  .box>.box-likes {
+  .box > .box-likes {
     margin: 0 auto;
     overflow: hidden;
     padding: 0 30px;
     position: relative;
   }
 
-  .box>.box-likes>.row {
+  .box > .box-likes > .row {
     border-top: 1px solid rgba(221, 221, 221, 0.404);
     padding: 3px 0;
   }
 
-  .box>.box-likes>.row>span {
+  .box > .box-likes > .row > span {
     display: inline-block;
     font-size: 13px;
     margin: 0 2px 0 0;
@@ -747,12 +746,12 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     vertical-align: middle;
   }
 
-  .box>.box-likes>.row:first-child {
+  .box > .box-likes > .row:first-child {
     float: left;
     width: 60%;
   }
 
-  .box>.box-likes>.row:last-child {
+  .box > .box-likes > .row:last-child {
     float: right;
     text-align: end;
     width: 43%;
@@ -760,37 +759,36 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     padding-left: 80px;
   }
 
-  .box>.box-likes>.row:first-child>span:nth-child(4) {
-    background: #4D679F;
+  .box > .box-likes > .row:first-child > span:nth-child(4) {
+    background: #4d679f;
     border-radius: 50px;
     font-weight: bold;
     padding: 0 8px 0 6px;
   }
 
-  .box>.box-likes>.row:first-child>span:nth-child(4)>a {
-    color: #FFF;
+  .box > .box-likes > .row:first-child > span:nth-child(4) > a {
+    color: #fff;
   }
 
-  .box>.box-likes>.row:first-child>span,
-  .box>.box-likes>.row:last-child>span {
-    color: #9197A3;
+  .box > .box-likes > .row:first-child > span,
+  .box > .box-likes > .row:last-child > span {
+    color: #9197a3;
   }
 
-  .box>.box-likes>.row:last-child>span {
+  .box > .box-likes > .row:last-child > span {
     display: inline-block;
     vertical-align: middle;
   }
 
-  .box>.box-likes>.row img {
+  .box > .box-likes > .row img {
     border-radius: 100px;
     height: 28px;
     object-fit: cover;
     width: 28px;
   }
 
-
-  .box>.box-click {
-    color: #4D679F;
+  .box > .box-click {
+    color: #4d679f;
     font-size: 13px;
     margin: 0 auto;
     overflow: hidden;
@@ -798,16 +796,16 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     position: relative;
   }
 
-  .box>.box-click>span {
+  .box > .box-click > span {
     cursor: pointer;
   }
 
-  .box>.box-click>span i {
+  .box > .box-click > span i {
     font-size: 18px;
     margin-right: 5px;
   }
 
-  .box>.box-comments {
+  .box > .box-comments {
     margin: 0;
     overflow: hidden;
     position: relative;
@@ -823,7 +821,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 100%;
   }
 
-  .comment>img {
+  .comment > img {
     border-radius: 100px;
     float: left;
     height: 35px;
@@ -833,7 +831,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 36px;
   }
 
-  .comment>.content {
+  .comment > .content {
     height: auto;
     line-height: 20px;
     overflow: hidden;
@@ -847,7 +845,7 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     margin: 3px 0px 3px 0px;
   }
 
-  .comment>h3 {
+  .comment > h3 {
     float: left;
     font-size: 14px;
     font-weight: 600;
@@ -856,28 +854,28 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 150px;
   }
 
-  .comment>.content>span {
-    color: #9197A3;
+  .comment > .content > span {
+    color: #9197a3;
     font-size: 12px;
     font-weight: 400;
     text-transform: none;
   }
 
-  .comment>.content>p {
+  .comment > .content > p {
     color: whitesmoke;
     font-size: 13px;
     margin: 0;
     padding: 0;
   }
 
-  .box>.box-new-comment {
+  .box > .box-new-comment {
     overflow: hidden;
     padding: 6px 17px;
     position: relative;
     border-radius: 4px;
   }
 
-  .box>.box-new-comment>img {
+  .box > .box-new-comment > img {
     border-radius: 100px;
     float: left;
     height: 36px;
@@ -887,19 +885,19 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     margin: 7px 8px 0px 0px;
   }
 
-  .box>.box-new-comment>.content {
+  .box > .box-new-comment > .content {
     border-radius: 7px;
     margin: 9px 12px 4px 0px;
     overflow: hidden;
     padding: 0;
     position: relative;
     width: initial;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
-  .box>.box-new-comment>.content>.row {
+  .box > .box-new-comment > .content > .row {
     background: transparent;
     display: inline-block;
     height: 32px;
@@ -907,13 +905,13 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     position: relative;
     vertical-align: middle;
     width: 100%;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
-  .box>.box-new-comment>.content>.row:last-child {
-    color: #C6C9D0;
+  .box > .box-new-comment > .content > .row:last-child {
+    color: #c6c9d0;
     font-size: 22px;
     height: 28px;
     line-height: 27px;
@@ -930,13 +928,11 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     font-size: 18px;
   }
 
-
-
-  .box>.box-new-comment>.content>.row:last-child>span {
+  .box > .box-new-comment > .content > .row:last-child > span {
     cursor: pointer;
   }
 
-  .box>.box-new-comment>.content>.row>textarea {
+  .box > .box-new-comment > .content > .row > textarea {
     /* border: 1px solid transparent; */
     border-radius: 4px;
     color: #555;
@@ -945,41 +941,41 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     resize: auto;
     width: calc(100% - 52px) !important;
 
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
   .box.update,
   .box.text {
-    border: 1px solid #E0E1E4;
+    border: 1px solid #e0e1e4;
     box-shadow: none;
     padding: 20px 0 0;
   }
 
-  .box.update>.box-header,
-  .box.text>.box-header {
+  .box.update > .box-header,
+  .box.text > .box-header {
     padding: 0 30px;
   }
 
-  .box.update>.box-header>span,
-  .box.text>.box-header>span {
+  .box.update > .box-header > span,
+  .box.text > .box-header > span {
     background: transparent;
-    color: #9298A4;
+    color: #9298a4;
     font-size: 32px;
     margin: -10px auto 0;
   }
 
-  .box.update>.box-content>.content>p,
-  .box.text>.box-content>.content>p {
-    border-top: 1px solid #F4F4F4;
-    color: #4D5057;
+  .box.update > .box-content > .content > p,
+  .box.text > .box-content > .content > p {
+    border-top: 1px solid #f4f4f4;
+    color: #4d5057;
     font-size: 14px;
     line-height: 22px;
     padding: 26px 30px;
   }
 
-  .box.update>.box-content>.content>.img {
+  .box.update > .box-content > .content > .img {
     margin: 0;
     overflow: hidden;
     padding: 0;
@@ -987,8 +983,8 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: initial;
   }
 
-  .box.update>.box-content>.content>.img:before {
-    border: 1px solid rgba(0, 0, 0, .25);
+  .box.update > .box-content > .content > .img:before {
+    border: 1px solid rgba(0, 0, 0, 0.25);
     bottom: 0;
     content: "";
     height: 100%;
@@ -999,46 +995,42 @@ $comment-bg-color: rgb(103 102 102 / 12%);
     width: 100%;
   }
 
-  .box.text>.box-buttons>.row>button {
+  .box.text > .box-buttons > .row > button {
     font-size: 13px;
   }
 
-  .box.text>.box-buttons>.row>button>span {
+  .box.text > .box-buttons > .row > button > span {
     font-size: 20px;
   }
 
-  .box.image>.box-new-comment>.content,
-  .box.image>.box-new-comment>.content>.row>textarea,
-  .box.video>.box-new-comment>.content,
-  .box.video>.box-new-comment>.content>.row>textarea {
-    background: #9298A4;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+  .box.image > .box-new-comment > .content,
+  .box.image > .box-new-comment > .content > .row > textarea,
+  .box.video > .box-new-comment > .content,
+  .box.video > .box-new-comment > .content > .row > textarea {
+    background: #9298a4;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
-
-  .box.image>.box-new-post>.content,
-  .box.image>.box-new-post>.content>.row>textarea,
-  .box.video>.box-new-post>.content,
-  .box.video>.box-new-post>.content>.row>textarea {
-    background: #9298A4;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+  .box.image > .box-new-post > .content,
+  .box.image > .box-new-post > .content > .row > textarea,
+  .box.video > .box-new-post > .content,
+  .box.video > .box-new-post > .content > .row > textarea {
+    background: #9298a4;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
     height: 30px;
-
   }
 
-  .box>.box-new-comment>.content>.row>textarea:focus,
-  .box.image>.box-new-comment>.content:active>.row {
+  .box > .box-new-comment > .content > .row > textarea:focus,
+  .box.image > .box-new-comment > .content:active > .row {
     background-color: $comment-bg-color;
   }
 
-  .box>.box-new-comment>.content>.row>textarea:focus,
-  .box.video .box-new-comment>.content:active>.row {
+  .box > .box-new-comment > .content > .row > textarea:focus,
+  .box.video .box-new-comment > .content:active > .row {
     background-color: $comment-bg-color;
   }
-
-
 }
